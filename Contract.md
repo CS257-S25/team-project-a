@@ -17,11 +17,12 @@ Tester - Uses a virtual environment to test methods
 
 # Rules
 Be a kind courteous team player
+Respond to messages in a timely manner
+Finish everything within the deadline 
 
 ## Meetings
-Monday/Wednesday = time is scarce
-Tuesday/Thursday = 
-Friday = 
+Monday/Wednesday = 3-4pm
+Friday = 10-12pm
 
 ## Communication
 We can communicate via I-message. I feel like respect 
@@ -33,6 +34,8 @@ pretty neutral way I feel. Checking in should really only be necessary when some
 
 ## Technologies
 I-message
+GitHub
+Email
 
 ## Decision-Making
 Decision making should be done via general consensus, if someone has 
