@@ -11,7 +11,7 @@ Good at spotting errors in code
 # Roles
 (These roles will not be permanent, they just exist and can be changed)  
 Scribe - Writes code - Alex  
-Bug Finder - Finds and points out bugs, anyone can fix them  
+Bug Finder - Finds and points out bugs, anyone can fix them - Newton 
 Brainstormer - Devises and plans out new ways the code could function  
 Tester - Uses a virtual environment to test methods
 
