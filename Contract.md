@@ -1,6 +1,6 @@
 # Goals
 To learn how to design a website (a cool website!)  
-Have interesting results that we can draw from a data set and have users be able to see those results
+Have interesting results that we can draw from a data set and have users be able to see those results!
 
 # Strengths
 Sorting data sets - Alex  
@@ -16,9 +16,9 @@ Brainstormer - Devises and plans out new ways the code could function
 Tester - Uses a virtual environment to test methods - Andrew
 
 # Rules
-Be a kind courteous team player  
-Respond to messages in a timely manner  
-Finish everything within the deadline
+* Be a kind courteous team player.  
+* Respond to messages in a timely manner.  
+* Finish everything within the deadline.
 
 ## Meetings
 Monday/Wednesday = 3-4pm  
@@ -30,12 +30,12 @@ can generally just be pronoun awareness or maybe a first name basis when
 addressing each other, maybe gentle reminders of due dates whether team or individual.  
 I know you can @ people in ios texting so that can get attention pretty easily in a  
 pretty neutral way I feel. Checking in should really only be necessary when someone  
- deems it necessary, like when no progress would affect their progress.  
+deems it necessary, like when no progress would affect their progress.  
 
 ## Technologies
-I-message  
-GitHub  
-Email  
+* I-message  
+* GitHub  
+* Email  
 
 ## Decision-Making
 Decision making should be done via general consensus, if someone has

@@ -49,15 +49,15 @@ Leukefeld, Carl. Criminal Justice Drug Abuse Treatment Studies (CJ-DATS): Restru
 
 User Story: A user wants to see the frequency at which subjects attended self-help meetings over the course of 30 or 90 days prior to follow up.
 
-Accptance Criteria:
+Acceptance Criteria:
 Able to see a list of frequency or count of amount of subjects who attended self-help meeting over the course of 30 or 90 days specified by the user.
 
 User Story: A user wants to see the frequency of a subject being arrested given a range of times committed selling drugs in the past 30 days.
 
 Acceptance Criteria:
-Able to see the relationship between a specific subject being arrested and the range of times they were commited selling drugs
+Able to see the relationship between a specific subject being arrested and the range of times they were commited selling drugs.
 
-User Story: A user wants to see if going to self help meeting increases the chance of employment
+User Story: A user wants to see if going to self help meeting increases the chance of employment.
 
 Acceptance Criteria:
 The terminal input returns a probability of a person being employed given that they went to a certain number of self help meetings. 
