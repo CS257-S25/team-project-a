@@ -16,9 +16,9 @@ def process_input():
         if sys.argv[1] == "--meeting":
             if len(sys.argv) == 3:
                 if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
-                    data_procesor.meeting_frequency()
+                    print(data_procesor.meeting_frequency())
                 if sys.argv[2] == "count":
-                    data_procesor.meeting_count()
+                    print(data_procesor.meeting_count())
             else:
                 print_usage_statement()
         elif sys.argv[1] == "--sellArrest":
