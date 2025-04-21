@@ -5,7 +5,7 @@ Have interesting results that we can draw from a data set and have users be able
 # Strengths
 Sorting data sets - Alex  
 Github - Alex  
-Good at spotting errors in code - Andrew  
+Good at spotting errors in code - Andrew, Nicholas
 Worked using HTML and CSS at some basic levels - Newton  
 
 
