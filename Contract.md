@@ -13,7 +13,7 @@ Worked using HTML and CSS at some basic levels - Newton
 (These roles will not be permanent, they just exist and can be changed)  
 Scribe - Writes code - Alex  
 Bug Finder - Finds and points out bugs, anyone can fix them - Newton 
-Brainstormer - Devises and plans out new ways the code could function
+Brainstormer - Devises and plans out new ways the code could function - Nicholas
 Tester - Uses a virtual environment to test methods - Andrew
 
 # Rules
