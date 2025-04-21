@@ -5,15 +5,15 @@ Have interesting results that we can draw from a data set and have users be able
 # Strengths
 Sorting data sets - Alex  
 Github - Alex  
-Worked using HTML and CSS at some basic levels  
-Good at spotting errors in code
+Worked using HTML and CSS at some basic levels - Newton 
+Good at spotting errors in code - Andrew
 
 # Roles
 (These roles will not be permanent, they just exist and can be changed)  
 Scribe - Writes code - Alex  
 Bug Finder - Finds and points out bugs, anyone can fix them - Newton 
-Brainstormer - Devises and plans out new ways the code could function  
-Tester - Uses a virtual environment to test methods
+Brainstormer - Devises and plans out new ways the code could function
+Tester - Uses a virtual environment to test methods - Andrew
 
 # Rules
 Be a kind courteous team player  
