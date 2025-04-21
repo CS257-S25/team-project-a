@@ -21,10 +21,10 @@ def process_input():
                     print(data_procesor.meeting_count())
             else:
                 print_usage_statement()
-        elif sys.argv[1] == "--sellArrest":
+        elif sys.argv[1] == "--sellArrests":
             if get_sys_argv_length() == 4:
                 try:
-                    data_procesor.drug_sale_arrests(int(sys.argv[2]), int(sys.argv[3]))
+                    print(data_procesor.drug_sale_arrests(int(sys.argv[2]), int(sys.argv[3])))
                 except ValueError:
                     print_usage_statement()
             else:
