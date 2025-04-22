@@ -3,7 +3,7 @@
 import fileinput
 
 data = []
-dataInitalized = False
+DATAINITIALIZED = False
 
 def meeting_frequency():
     """returns the avegrage frequency of meeting attendance by the subjects"""
@@ -32,17 +32,17 @@ def make_data_array():
 
 def initialize_data():
     """ensures that the data is gathered if it is not already"""
-    global dataInitalized
-    if not dataInitalized:
+    global DATAINITIALIZED
+    if not DATAINITIALIZED:
         make_data_array()
-        dataInitalized = True
+        DATAINITIALIZED = True
 
-def initalize_dummy_data(dummyData):
+def initalize_dummy_data(dummy_data):
     """Allows for dummy data use for testing"""
     global data
-    data = dummyData
-    global dataInitalized
-    dataInitalized = True
+    data = dummy_data
+    global DATAINITIALIZED
+    DATAINITIALIZED = True
 
 def get_col_num_with_title(name):
     """gets a columns index out of the data set with a specific variable name"""
@@ -68,8 +68,7 @@ def get_max_num(arr):
     temp = 0
     for i in arr:
         try:
-            if int(i) > temp:
-                temp = int(i)
+            temp = max(temp, int(i))
         except ValueError:
             pass
     return temp
