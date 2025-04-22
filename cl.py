@@ -16,12 +16,12 @@ def process_input():
         print_usage_statement()
     elif len(sys.argv) > 1 and sys.argv[1] == "--meeting":
         input_meeting_helper()
-        
     elif len(sys.argv) > 1 and sys.argv[1] == "--sellArrests":
         input_serrest_helper()
 
 
 def input_meeting_helper():
+    """Serves as a helper for calling the production code method meeting_frequency/count()"""
     if len(sys.argv) == 3:
         if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
             print(str(data_procesor.meeting_frequency()) + "%")
@@ -32,18 +32,19 @@ def input_meeting_helper():
 
 
 def input_serrest_helper():
+    """Serves as a helper for calling the production code method drug_sale_arrests()"""
     if get_sys_argv_length() == 4:
-            try:
-                print(
-                    str(
-                        data_procesor.drug_sale_arrests(
-                            int(sys.argv[2]), int(sys.argv[3])
-                        )
+        try:
+            print(
+                str(
+                    data_procesor.drug_sale_arrests(
+                        int(sys.argv[2]), int(sys.argv[3])
                     )
-                    + " people"
                 )
-            except ValueError:
-                print_usage_statement()
+                + " people"
+            )
+        except ValueError:
+            print_usage_statement()
     else:
         print_usage_statement()
 
