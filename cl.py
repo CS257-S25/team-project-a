@@ -14,16 +14,25 @@ def process_input():
     the methods from production code to get the requested info"""
     if len(sys.argv) == 0:
         print_usage_statement()
-    elif len(sys.argv) > 1:
-        if sys.argv[1] == "--meeting" and len(sys.argv) == 3:
-            if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
-                print(str(data_procesor.meeting_frequency()) + "%")
-            if sys.argv[2] == "count":
-                print(str(data_procesor.meeting_count()) + " meetings attended")
-        else:
-            print_usage_statement()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--meeting":
+        input_meeting_helper()
+        
     elif len(sys.argv) > 1 and sys.argv[1] == "--sellArrests":
-        if get_sys_argv_length() == 4:
+        input_serrest_helper()
+
+
+def input_meeting_helper():
+    if len(sys.argv) == 3:
+        if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
+            print(str(data_procesor.meeting_frequency()) + "%")
+        if sys.argv[2] == "count":
+            print(str(data_procesor.meeting_count()) + " meetings attended")
+    else:
+        print_usage_statement()
+
+
+def input_serrest_helper():
+    if get_sys_argv_length() == 4:
             try:
                 print(
                     str(
