@@ -18,6 +18,8 @@ def process_input():
         input_meeting_helper()
     elif len(sys.argv) > 1 and sys.argv[1] == "--sellArrests":
         input_serrest_helper()
+    else:
+        print_usage_statement()
 
 
 def input_meeting_helper():
