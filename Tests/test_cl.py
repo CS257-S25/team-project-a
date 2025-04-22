@@ -50,7 +50,8 @@ class TestProcessInput(unittest.TestCase):
         self.assertEqual(printed_output, "3 people", "should be 3 people")
 
     def test_arrests_command_line_wrong_input(self):
-        """Testing that the comand line command returns the usage case when invalid input is passed in"""
+        """Testing that the comand line command returns the usage case 
+        when invalid input is passed in"""
         sys.argv = ["basic_cl.py", "--sellArrests"]
         sys.stdout = StringIO()
         cl.main()
@@ -66,7 +67,8 @@ class TestProcessInput(unittest.TestCase):
         )
 
     def test_meetings_command_line_wrong_input(self):
-        """Testing that the comand line command returns the usage case when invalid input is passed in"""
+        """Testing that the comand line command returns the usage case 
+        when invalid input is passed in"""
         sys.argv = ["basic_cl.py", "--meetings"]
         sys.stdout = StringIO()
         cl.main()
@@ -82,7 +84,8 @@ class TestProcessInput(unittest.TestCase):
         )
 
     def test_command_line_wrong_input(self):
-        """Testing that the comand line command returns the usage case when invalid input is passed in"""
+        """Testing that the comand line command returns the usage case 
+        when invalid input is passed in"""
         sys.argv = ["basic_cl.py"]
         sys.stdout = StringIO()
         cl.main()

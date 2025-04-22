@@ -3,9 +3,11 @@
 import sys
 from ProductionCode import data_procesor
 
+
 def main():
     """Runs the Program"""
     process_input()
+
 
 def process_input():
     """Takes in the command line input and calls
@@ -16,15 +18,22 @@ def process_input():
         if sys.argv[1] == "--meeting":
             if len(sys.argv) == 3:
                 if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
-                    print(str(data_procesor.meeting_frequency())+"%")
+                    print(str(data_procesor.meeting_frequency()) + "%")
                 if sys.argv[2] == "count":
-                    print(str(data_procesor.meeting_count())+" meetings attended")
+                    print(str(data_procesor.meeting_count()) + " meetings attended")
             else:
                 print_usage_statement()
         elif sys.argv[1] == "--sellArrests":
             if get_sys_argv_length() == 4:
                 try:
-                    print(str(data_procesor.drug_sale_arrests(int(sys.argv[2]), int(sys.argv[3])))+" people")
+                    print(
+                        str(
+                            data_procesor.drug_sale_arrests(
+                                int(sys.argv[2]), int(sys.argv[3])
+                            )
+                        )
+                        + " people"
+                    )
                 except ValueError:
                     print_usage_statement()
             else:
@@ -34,15 +43,20 @@ def process_input():
     else:
         print_usage_statement()
 
+
 def get_sys_argv_length():
     """gives the numebr of commands in the comand line input"""
     return len(sys.argv)
 
+
 def print_usage_statement():
     """Prints the class usage statement when improper input is given"""
-    print("Usage:" \
-    "\npython3 cl.py --meeting [\"frequency\", \"count\"]" \
-    "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount")
+    print(
+        "Usage:"
+        '\npython3 cl.py --meeting ["frequency", "count"]'
+        "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount"
+    )
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()

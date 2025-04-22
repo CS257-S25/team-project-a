@@ -55,24 +55,24 @@ def get_col_num_with_title(name):
 
 def get_sum(arr):
     """gets the sum of a string array of numbers"""
-    sum = 0
+    temp = 0
     for i in arr:
         try:
-            sum += int(i)
+            temp += int(i)
         except ValueError:
-            sum += 0
+            temp += 0
     return sum
 
 def get_max(arr):
     """gets the maximum number in a string array of numbers"""
-    max = 0
+    temp = 0
     for i in arr:
         try:
-            if int(i) > max:
-                max = int(i)
+            if int(i) > temp:
+                temp = int(i)
         except ValueError:
             pass
-    return max
+    return temp
 
 def get_total_valid(arr):
     """gets the total valid numbers in a string array of numbers"""
