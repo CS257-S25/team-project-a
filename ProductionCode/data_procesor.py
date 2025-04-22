@@ -37,6 +37,13 @@ def initialize_data():
         make_data_array()
         dataInitalized = True
 
+def initalize_dummy_data(dummyData):
+    """Allows for dummy data use for testing"""
+    global data
+    data = dummyData
+    global dataInitalized
+    dataInitalized = True
+
 def get_col_num_with_title(name):
     """gets a columns index out of the data set with a specific variable name"""
     i = 0

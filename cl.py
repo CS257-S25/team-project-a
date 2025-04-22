@@ -16,15 +16,15 @@ def process_input():
         if sys.argv[1] == "--meeting":
             if len(sys.argv) == 3:
                 if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
-                    print(data_procesor.meeting_frequency())
+                    print(str(data_procesor.meeting_frequency())+"%")
                 if sys.argv[2] == "count":
-                    print(data_procesor.meeting_count())
+                    print(str(data_procesor.meeting_count())+" meetings attended")
             else:
                 print_usage_statement()
         elif sys.argv[1] == "--sellArrests":
             if get_sys_argv_length() == 4:
                 try:
-                    print(data_procesor.drug_sale_arrests(int(sys.argv[2]), int(sys.argv[3])))
+                    print(str(data_procesor.drug_sale_arrests(int(sys.argv[2]), int(sys.argv[3])))+" people")
                 except ValueError:
                     print_usage_statement()
             else:
@@ -41,8 +41,8 @@ def get_sys_argv_length():
 def print_usage_statement():
     """Prints the class usage statement when improper input is given"""
     print("Usage:" \
-    "\npython3 --meeting [\"frequency\", \"count\"]" \
-    "\npython3 --sellArrests lowerBoundCount UpperBoundCount")
+    "\npython3 cl.py --meeting [\"frequency\", \"count\"]" \
+    "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount")
 
 if __name__=="__main__":
     main()
