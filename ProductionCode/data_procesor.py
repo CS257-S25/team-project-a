@@ -9,13 +9,13 @@ def meeting_frequency():
     """returns the avegrage frequency of meeting attendance by the subjects"""
     initialize_data()
     attendance = get_col(get_col_num_with_title("NSHLPM"))
-    return ((get_sum(attendance)/(get_total_valid(attendance)))/get_max(attendance))*100
+    return ((get_sum_array(attendance)/(get_total_valid(attendance)))/get_max_num(attendance))*100
 
 def meeting_count():
     """returns the avegrage count of meetings attended by the subjects"""
     initialize_data()
     attendance = get_col(get_col_num_with_title("NSHLPM"))
-    return get_sum(attendance)/(get_total_valid(attendance))
+    return get_sum_array(attendance)/(get_total_valid(attendance))
 
 def drug_sale_arrests(lower, upper):
     """returns the number of subjects arrested on drug charges a number of times 
@@ -53,7 +53,7 @@ def get_col_num_with_title(name):
         i += 1
     return -1
 
-def get_sum(arr):
+def get_sum_array(arr):
     """gets the sum of a string array of numbers"""
     temp = 0
     for i in arr:
@@ -61,9 +61,9 @@ def get_sum(arr):
             temp += int(i)
         except ValueError:
             temp += 0
-    return sum
+    return temp
 
-def get_max(arr):
+def get_max_num(arr):
     """gets the maximum number in a string array of numbers"""
     temp = 0
     for i in arr:

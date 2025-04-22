@@ -170,19 +170,19 @@ class TestGetSum(unittest.TestCase):
 
     def test_correct_values(self):
         """Testing that for a correct values the sum is output"""
-        self.assertEqual(data_procesor.get_sum(["1", "2", "3"]), 6, "should be 6")
+        self.assertEqual(data_procesor.get_sum_array(["1", "2", "3"]), 6, "should be 6")
 
     def test_incorrect_value(self):
         """Testing that for incorrect values the sum is unchanhged"""
         self.assertEqual(
-            data_procesor.get_sum(["1", "2", "3", "value"]),
+            data_procesor.get_sum_array(["1", "2", "3", "value"]),
             6,
             "should be 6",
         )
 
     def test_blank_value(self):
         """Testing that for incorrect values the sum is unchanhged"""
-        self.assertEqual(data_procesor.get_sum(["1", "2", "3", ""]), 6, "should be 6")
+        self.assertEqual(data_procesor.get_sum_array(["1", "2", "3", ""]), 6, "should be 6")
 
 
 class TestGetMax(unittest.TestCase):
@@ -190,19 +190,19 @@ class TestGetMax(unittest.TestCase):
 
     def test_correct_values(self):
         """Testing that for a correct values the max is output"""
-        self.assertEqual(data_procesor.get_max(["1", "2", "3"]), 3, "should be 3")
+        self.assertEqual(data_procesor.get_max_num(["1", "2", "3"]), 3, "should be 3")
 
     def test_incorrect_value(self):
         """Testing that for incorrect values the max is unchanhged"""
         self.assertEqual(
-            data_procesor.get_max(["1", "2", "3", "value"]),
+            data_procesor.get_max_num(["1", "2", "3", "value"]),
             3,
             "should be 3",
         )
 
     def test_blank_value(self):
         """Testing that for incorrect values the max is unchanhged"""
-        self.assertEqual(data_procesor.get_max(["1", "2", "3", ""]), 3, "should be 3")
+        self.assertEqual(data_procesor.get_max_num(["1", "2", "3", ""]), 3, "should be 3")
 
 
 class TestGetTotalValid(unittest.TestCase):
