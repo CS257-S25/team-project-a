@@ -15,31 +15,26 @@ def process_input():
     if len(sys.argv) == 0:
         print_usage_statement()
     elif len(sys.argv) > 1:
-        if sys.argv[1] == "--meeting":
-            if len(sys.argv) == 3:
-                if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
-                    print(str(data_procesor.meeting_frequency()) + "%")
-                if sys.argv[2] == "count":
-                    print(str(data_procesor.meeting_count()) + " meetings attended")
-            else:
-                print_usage_statement()
-        elif sys.argv[1] == "--sellArrests":
-            if get_sys_argv_length() == 4:
-                try:
-                    print(
-                        str(
-                            data_procesor.drug_sale_arrests(
-                                int(sys.argv[2]), int(sys.argv[3])
-                            )
-                        )
-                        + " people"
-                    )
-                except ValueError:
-                    print_usage_statement()
-            else:
-                print_usage_statement()
+        if sys.argv[1] == "--meeting" and len(sys.argv) == 3:
+            if sys.argv[2] == "frequency" or sys.argv[2] == "freq":
+                print(str(data_procesor.meeting_frequency()) + "%")
+            if sys.argv[2] == "count":
+                print(str(data_procesor.meeting_count()) + " meetings attended")
         else:
             print_usage_statement()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--sellArrests":
+        if get_sys_argv_length() == 4:
+            try:
+                print(
+                    str(
+                        data_procesor.drug_sale_arrests(
+                            int(sys.argv[2]), int(sys.argv[3])
+                        )
+                    )
+                    + " people"
+                )
+            except ValueError:
+                print_usage_statement()
     else:
         print_usage_statement()
 
