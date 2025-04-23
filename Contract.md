@@ -3,18 +3,18 @@ To learn how to design a website (a cool website!)
 Have interesting results that we can draw from a data set and have users be able to see those results!
 
 # Strengths
-Sorting data sets - Alex  
-Github - Alex  
-Good at spotting errors in code - Andrew, Nicholas  
-Worked using HTML and CSS at some basic levels - Newton  
+* Sorting data sets - Alex  
+* Github - Alex  
+* Good at spotting errors in code - Andrew, Nicholas  
+* Worked using HTML and CSS at some basic levels - Newton  
 
 
 # Roles
 (These roles will not be permanent, they just exist and can be changed)  
-Scribe - Writes code - Alex  
-Bug Finder - Finds and points out bugs, anyone can fix them - Newton  
-Brainstormer - Devises and plans out new ways the code could function - Nicholas  
-Tester - Uses a virtual environment to test methods - Andrew
+* Scribe - Writes code - Alex  
+* Bug Finder - Finds and points out bugs, anyone can fix them - Newton  
+* Brainstormer - Devises and plans out new ways the code could function - Nicholas  
+* Tester - Uses a virtual environment to test methods - Andrew
 
 # Rules
 * Be a kind courteous team player.  
@@ -43,9 +43,8 @@ deems it necessary, like when no progress would affect their progress.
 Decision making should be done via general consensus, if someone has an idea they can just suggest it and then we can vote.
 
 ## Delegation
-Work should be divided evenly and everyone should receive a meaningful task at any given time,  
-we should value product over time spent on product, unless obviously this product isn't produced by people.
-
+* Division of labor: Everyone receive a meaningful task at any given time.  
+* Constant Evaluation: We should constantly evaluate if the code we have works.
 
 ## Conflict Resolution
 First spam at them via messages.  
