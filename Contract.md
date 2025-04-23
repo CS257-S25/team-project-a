@@ -6,7 +6,7 @@ Have interesting results that we can draw from a data set and have users be able
 Sorting data sets - Alex  
 Github - Alex  
 Good at spotting errors in code - Andrew, Nicholas  
-Worked using HTML and CSS at some basic levels - Newton
+Worked using HTML and CSS at some basic levels - Newton  
 
 
 # Roles
@@ -28,9 +28,9 @@ Friday = 10-12pm
 ## Communication
 We can communicate via I-message.  
 I feel like respect can generally just be pronoun awareness  
-also being on a first name basis when addressing each other,  
+also being on a first name basis when addressing each other,
 Aditonaly, team members provide gentle reminders of due dates whether team or individual.  
-I know you can @ people in ios texting so that can get attention pretty easily in a  
+I know you can @ people in ios texting so that can get attention pretty easily in a
 pretty neutral way I feel. Checking in should really only be necessary when someone  
 deems it necessary, like when no progress would affect their progress.  
 
