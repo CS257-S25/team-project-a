@@ -55,10 +55,13 @@ Acceptance Criteria:
    - subject_id (integer)  
    - window_days (integer, either 30 or 90)  
    - meeting_count (integer ≥ 0)  
-* For subject 42, if they attended 3 meetings in the 30 days prior and 7 meetings in the 90 days prior, the output would be: 
-subject_id | window_days | meeting_count  
-42         | 30          | 3  
-42         | 90          | 7  
+* For subject 42, if they attended 3 meetings in the 30 days prior and 7 meetings in the 90 days prior, the output would be:  
+| subject_id      | window_days     | meeting_count    |  
+|-----------------|-----------------|------------------|  
+| 42&nbsp;&nbsp;&nbsp;&nbsp; | 30&nbsp;&nbsp;&nbsp;&nbsp;  | 3&nbsp;&nbsp;&nbsp;&nbsp;       |  
+| 42&nbsp;&nbsp;&nbsp;&nbsp; | 90&nbsp;&nbsp;&nbsp;&nbsp;  | 7&nbsp;&nbsp;&nbsp;&nbsp;       |  
+
+
 
 User Story 2: A user wants to see the frequency of a subject being arrested given a range of times committed selling drugs in the past 30 days.
 
