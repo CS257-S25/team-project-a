@@ -56,9 +56,10 @@ Acceptance Criteria:
    - window_days (integer, either 30 or 90)  
    - meeting_count (integer ≥ 0)  
 * For subject 42, if they attended 3 meetings in the 30 days prior and 7 meetings in the 90 days prior, the output would be:  
-subject_id | window_days | meeting_count  
-42 | 30 | 3  
-42 | 90 | 7  
+|  -----------|-------------|---------  |  
+| subject_id | window_days | meeting_count  |
+|42 | 30 | 3 | 
+|42 | 90 | 7 |
 
  
 
@@ -75,7 +76,7 @@ Able to see the relationship between a specific subject being arrested and the r
    - arrested (0 or 1)  
 * For a subject selling 5 drugs between 2025-03-01 and 2025-03-31 and were arrested at least once, the output would be:  
 |  subject_id | sales_count | arrested  |  
-|  -----------|-------------|---------  |  
+|-------------|-------------|-----------|  
 |  101        | 5           | 1  |  
 
 User Story: A user wants to see if going to self help meeting increases the chance of employment.

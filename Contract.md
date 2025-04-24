@@ -30,8 +30,8 @@ We can communicate via I-message.
 I feel like respect can generally just be pronoun awareness
 also being on a first name basis when addressing each other.
 Additonaly, team members provide gentle reminders of due dates whether team or individual.  
-I know you can @ people in ios texting so that can get attention pretty easily in a
-pretty neutral way I feel. Checking in should really only be necessary when someone 
+You can @ people in ios texting so that can get attention pretty easily in a
+pretty neutral way. Checking in should really only be necessary when someone 
 deems it necessary, like when no progress would affect their progress.  
 
 ## Technologies
