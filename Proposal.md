@@ -82,3 +82,9 @@ User Story: A user wants to see if going to self help meeting increases the chan
 
 Acceptance Criteria:
 The terminal input returns a probability of a person being employed given that they went to a certain number of self help meetings. 
+* Use a function or endpoint predict_employment(meeting_count) returning a probability between 0 and 1.
+* Input parameter
+    - meeting_count (integer ≥ 0)
+* Output JSON object with fields:
+    - meeting_count (integer)
+    - employment_probability (float ∈ [0.0, 1.0])
