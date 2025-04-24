@@ -56,10 +56,11 @@ Acceptance Criteria:
    - window_days (integer, either 30 or 90)  
    - meeting_count (integer ≥ 0)  
 * For subject 42, if they attended 3 meetings in the 30 days prior and 7 meetings in the 90 days prior, the output would be:  
-| subject_id| window_days| meeting_count|  
-|-----------|------------|--------------|  
-| 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  
-| 42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  
+| subject_id&nbsp;&nbsp;&nbsp;&nbsp;| window_days&nbsp;&nbsp;&nbsp;| meeting_count&nbsp;&nbsp;&nbsp;|
+|-----------------|-----------------|-------------------|
+| 42&nbsp;&nbsp;&nbsp;&nbsp;       | 30&nbsp;&nbsp;&nbsp;&nbsp;       | 3&nbsp;&nbsp;&nbsp;&nbsp;           |
+| 42&nbsp;&nbsp;&nbsp;&nbsp;       | 90&nbsp;&nbsp;&nbsp;&nbsp;       | 7&nbsp;&nbsp;&nbsp;&nbsp;           |
+ 
 
 
 
