@@ -9,13 +9,13 @@ def meeting_frequency():
     """returns the avegrage frequency of meeting attendance by the subjects"""
     initialize_data()
     attendance = get_col(get_col_num_with_title("NSHLPM"))
-    return ((get_sum_array(attendance)/(get_total_valid(attendance)))/get_max_num(attendance))*100
+    return round(((get_sum_array(attendance)/(get_total_valid(attendance)))/get_max_num(attendance))*100, 2)
 
 def meeting_count():
     """returns the avegrage count of meetings attended by the subjects"""
     initialize_data()
     attendance = get_col(get_col_num_with_title("NSHLPM"))
-    return get_sum_array(attendance)/(get_total_valid(attendance))
+    return round(get_sum_array(attendance)/(get_total_valid(attendance)), 2)
 
 def drug_sale_arrests(lower, upper):
     """returns the number of subjects arrested on drug charges a number of times 

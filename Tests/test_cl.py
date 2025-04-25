@@ -25,7 +25,7 @@ class TestProcessInput(unittest.TestCase):
 
     def test_meeting_command_line_freq(self):
         """Testing that the comand line command returns something when valid"""
-        sys.argv = ["basic_cl.py", "--meeting", "freq"]
+        sys.argv = ["basic_cl.py", "--meeting-freq"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
@@ -33,7 +33,7 @@ class TestProcessInput(unittest.TestCase):
 
     def test_meeting_command_line_count(self):
         """Testing that the comand line command returns something when valid"""
-        sys.argv = ["basic_cl.py", "--meeting", "count"]
+        sys.argv = ["basic_cl.py", "--meeting-count"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
@@ -43,7 +43,7 @@ class TestProcessInput(unittest.TestCase):
 
     def test_arrests_command_line(self):
         """Testing that the comand line command returns something when valid"""
-        sys.argv = ["basic_cl.py", "--sellArrests", 1, 10]
+        sys.argv = ["basic_cl.py", "--sell-arrests", 1, 10]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
@@ -52,17 +52,19 @@ class TestProcessInput(unittest.TestCase):
     def test_arrests_command_line_wrong_input(self):
         """Testing that the comand line command returns the usage case 
         when invalid input is passed in"""
-        sys.argv = ["basic_cl.py", "--sellArrests"]
+        sys.argv = ["basic_cl.py", "--sell-arrests"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
@@ -76,10 +78,12 @@ class TestProcessInput(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
@@ -93,10 +97,12 @@ class TestProcessInput(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
@@ -310,10 +316,12 @@ class TestPrintUsageStatement(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting ["frequency", "count"]'
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
