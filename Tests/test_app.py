@@ -98,8 +98,8 @@ class TestGetMeetingCount(unittest.TestCase):
         )
 
 
-    class TestDrugSaleArrests(unittest.TestCase):
-        """Tests the drug sale arrests route"""
+class TestDrugSaleArrests(unittest.TestCase):
+    """Tests the drug sale arrests route"""
 
     def setUp(self):
         """Sets up the test client"""
