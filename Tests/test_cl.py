@@ -1,4 +1,4 @@
-"""Test code"""
+"""Test code for command line interface"""
 
 import unittest
 import sys

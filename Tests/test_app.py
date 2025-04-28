@@ -1,4 +1,4 @@
-"""Test code"""
+"""Test code for flask app"""
 
 import unittest
 from app import app
@@ -105,11 +105,11 @@ class TestDrugSaleArrests(unittest.TestCase):
         """Sets up the test client"""
         self.app = app.test_client()
 
-    def setUpData(self):
+    def set_up_data(self):
         """Sets up the dummy data"""
         data_processor.initalize_dummy_data(dummyData)
 
     def test_drug_sale(self):
         """Test for route for drug sale arrests"""
-        response = self.app.get('/arrests/1/10', follow_redirects=True)
+        response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
         self.assertEqual(b"283 people", response.data)
