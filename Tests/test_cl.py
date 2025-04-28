@@ -7,7 +7,7 @@ from ProductionCode import data_processor
 import cl
 
 dummyData = [
-    ["NSHLPM", "ARSTDRG"],
+    ["NSHLPM", "ARSTDRUG"],
     ["3", "1"],
     ["20", "6"],
     ["4", "15"],
