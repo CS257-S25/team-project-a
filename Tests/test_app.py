@@ -3,15 +3,7 @@
 import unittest
 from app import app
 from ProductionCode import data_processor
-
-dummyData = [
-    ["NSHLPM", "ARSTDRG"],
-    ["3", "1"],
-    ["20", "6"],
-    ["4", "15"],
-    ["0", "9"],
-    [" ", " "],
-]
+from test_cl import dummyData
 
 
 class TestMainPage(unittest.TestCase):
