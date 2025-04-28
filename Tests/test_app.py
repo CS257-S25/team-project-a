@@ -61,8 +61,9 @@ class TestGetMeetingFrequency(unittest.TestCase):
         response = self.app.get("/0", follow_redirects=True)
         self.assertEqual(
             b"404 Not Found: The requested URL was not found on the server. " +
-            b"If you entered the URL manually please check your spelling and try again. " +
-            b"Sorry, wrong format, do this instead (url)/meeting/[frequency, count]",
+            b"Sorry, wrong format, do this instead " +
+            b"(url)/meeting/[frequency, count] or " +
+            b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
             response.data,
         )
 
@@ -92,8 +93,9 @@ class TestGetMeetingCount(unittest.TestCase):
         response = self.app.get("/0", follow_redirects=True)
         self.assertEqual(
             b"404 Not Found: The requested URL was not found on the server. " +
-            b"If you entered the URL manually please check your spelling and try again. " +
-            b"Sorry, wrong format, do this instead (url)/meeting/[frequency, count]",
+            b"Sorry, wrong format, do this instead " +
+            b"(url)/meeting/[frequency, count] or " +
+            b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
             response.data,
         )
 
@@ -111,5 +113,5 @@ class TestDrugSaleArrests(unittest.TestCase):
 
     def test_drug_sale(self):
         """Test for route for drug sale arrests"""
-        response = self.app.get('/arrests/1/10', follow_redirects=True)
+        response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
         self.assertEqual(b"283 people", response.data)
