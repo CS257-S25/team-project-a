@@ -25,7 +25,8 @@ class TestMainPage(unittest.TestCase):
             b"\n"
             b"Here are the main directories of our program for your research/interests: "
             b"\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]"
-            b"\nFor drug sale arrests amount: (url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
+            b"\nFor drug sale arrests amount: "
+            b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
             response.data,
         )
 
@@ -39,7 +40,7 @@ class TestGetMeetingFrequency(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_route(self):
         """Tests a correct path that should display the methods result"""
@@ -72,7 +73,7 @@ class TestGetMeetingCount(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_route(self):
         """Tests a correct path that should display the methods result"""
@@ -105,7 +106,7 @@ class TestDrugSaleArrests(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_drug_sale(self):
         """Test for route for drug sale arrests"""
