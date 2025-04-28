@@ -1,9 +1,10 @@
 """Test code for flask app"""
 
 import unittest
+from test_cl import dummyData
 from app import app
 from ProductionCode import data_processor
-from test_cl import dummyData
+
 
 
 class TestMainPage(unittest.TestCase):
