@@ -1,9 +1,10 @@
 """Test code for flask app"""
 
 import unittest
+from test_cl import dummyData
 from app import app
 from ProductionCode import data_processor
-from test_cl import dummyData
+
 
 
 class TestMainPage(unittest.TestCase):
@@ -105,3 +106,14 @@ class TestDrugSaleArrests(unittest.TestCase):
         """Test for route for drug sale arrests"""
         response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
         self.assertEqual(b"283 people", response.data)
+
+    def test_bad_route(self):
+        """Test a bad path that should display a correct usage hint"""
+        self.app = app.test_client()
+        response = self.app.get("/0", follow_redirects=True)
+        self.assertEqual(
+            b"404 Not Found: The requested URL was not found on the server. " +
+            b"If you entered the URL manually please check your spelling and try again. " +
+            b"Sorry, wrong format, do this instead (url)/meeting/[frequency, count]",
+            response.data,
+        )
