@@ -7,7 +7,7 @@ from ProductionCode import data_processor
 import cl
 
 dummyData = [
-    ["NSHLPM", "ARSTDRG"],
+    ["NSHLPM", "ARSTDRUG"],
     ["3", "1"],
     ["20", "6"],
     ["4", "15"],
@@ -21,7 +21,7 @@ class TestProcessInput(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_meeting_command_line_freq(self):
         """Testing that the comand line command returns something when valid"""
@@ -112,7 +112,7 @@ class TestMeetingFrequency(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_meeting_frequency(self):
         """Checks that the meeting frequency is returned"""
@@ -124,7 +124,7 @@ class TestMeetingCount(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_meeting_count(self):
         """Checks that the meeting frequency is returned"""
@@ -136,7 +136,7 @@ class TestDrugSaleArrests(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_normal_range(self):
         """Checks that the meeting frequency is returned"""
@@ -156,7 +156,7 @@ class TestGetColNumWithTitle(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_correct_name(self):
         """Testing that for a correct name input it returns the correct column"""
@@ -276,7 +276,7 @@ class TestGetCol(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.initalize_dummy_data(dummyData)
+        data_processor.data_obj.initalize_dummy_data(dummyData)
 
     def test_correct_name(self):
         """Testing that for a correct name input it returns the correct column"""
