@@ -4,10 +4,6 @@ import unittest
 from test_cl import dummyData
 from app import app
 from ProductionCode import data_processor
-<<<<<<< HEAD
-
-=======
->>>>>>> dc203e19002f144c74083e96d09654573bf76e08
 
 
 class TestMainPage(unittest.TestCase):
