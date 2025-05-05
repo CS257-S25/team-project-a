@@ -110,5 +110,16 @@ class TestDrugSaleArrests(unittest.TestCase):
 
     def test_drug_sale(self):
         """Test for route for drug sale arrests"""
-        response = self.app.get("/drug-sale-arrests/1/10", follow_redirects=True)
-        self.assertEqual(b"3 people", response.data)
+        response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
+        self.assertEqual(b"283 people", response.data)
+
+    def test_bad_route(self):
+        """Test a bad path that should display a correct usage hint"""
+        self.app = app.test_client()
+        response = self.app.get("/0", follow_redirects=True)
+        self.assertEqual(
+            b"404 Not Found: The requested URL was not found on the server. " +
+            b"If you entered the URL manually please check your spelling and try again. " +
+            b"Sorry, wrong format, do this instead (url)/meeting/[frequency, count]",
+            response.data,
+        )
