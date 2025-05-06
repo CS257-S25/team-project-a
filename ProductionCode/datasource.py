@@ -2,7 +2,7 @@
 
 import sys
 import psycopg2
-import psqlConfig as config
+from ProductionCode import psqlConfig as config
 
 class DataSource:
     """Sets up a database that can run sql commands"""
@@ -36,4 +36,34 @@ class DataSource:
         #Retrieve query results
         records = cursor.fetchall()
 
-        print(records)
+        return round(records[0][0], 2)
+ 
+    def get_freq_meetings_attended(self):
+        """Gets the frequency of self help meetings attended from the dataset"""
+
+        #Open a cursor to perform database operations
+        cursor = self.connection.cursor()
+
+        cursor.execute("SELECT avg(cast(NSHLPM as int)) FROM drug_data")
+
+        records1 = cursor.fetchall()
+
+        cursor.execute("SELECT max(cast(NSHLPM as int)) FROM drug_data")
+
+        records2 = cursor.fetchall()
+
+        return round((records1[0][0]/records2[0][0])*100, 2)
+    
+    def get_arrest_ranges(self, low, high):
+        """Gets the frequency of self help meetings attended from the dataset"""
+
+        #Open a cursor to perform database operations
+        cursor = self.connection.cursor()
+
+        cursor.execute("SELECT * FROM drug_data WHERE ARSTDRG>=%s" \
+        " AND ARSTDRG<=%s ORDER BY ARSTDRG DESC", (low, high,))
+
+        records = cursor.fetchall()
+
+
+        return len(records)

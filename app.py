@@ -1,7 +1,9 @@
 """This is a Flask App that allows for web based user database interaction"""
 
 from flask import Flask
-from ProductionCode import data_processor
+from ProductionCode.datasource import DataSource
+
+dataSource = DataSource()
 
 app = Flask(__name__)
 
@@ -32,19 +34,19 @@ def python_bug(e):
 @app.route('/meeting/frequency', strict_slashes=False)
 def get_meeting_freq():
     """Makes a page that runs when a user request is given for meeting data"""
-    freq = data_processor.meeting_frequency()
+    freq = dataSource.get_freq_meetings_attended()
     return "The average percentage of meetings attended is "+str(freq)+"%"
 
 @app.route('/meeting/count', strict_slashes=False)
 def get_meeting_count():
     """Makes a page that runs when a user request is given for meeting data"""
-    count = data_processor.meeting_count()
+    count = dataSource.get_ave_meetings_attended()
     return "The average number of meetings attended is "+str(count)
 
 @app.route('/drug-sale-arrests/<lower>/<upper>', strict_slashes=False)
 def drug_sale(lower, upper):
     """Determines the route to the drug sale arrests page"""
-    return str(data_processor.drug_sale_arrests(int(lower), int(upper))) + " people"
+    return str(dataSource.get_arrest_ranges(int(lower), int(upper))) + " people"
 
 if __name__ == '__main__':
     app.run()
