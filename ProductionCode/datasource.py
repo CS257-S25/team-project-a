@@ -2,7 +2,7 @@
 
 import sys
 import psycopg2
-#from ProductionCode import psqlConfig as config
+from ProductionCode import psqlConfig as config
 
 class DataSource:
     """Sets up a database that can run sql commands"""
