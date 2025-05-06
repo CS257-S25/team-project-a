@@ -2,7 +2,7 @@
 
 import sys
 import psycopg2
-from ProductionCode import psqlConfig as config
+#from ProductionCode import psqlConfig as config
 
 class DataSource:
     """Sets up a database that can run sql commands"""
@@ -53,7 +53,7 @@ class DataSource:
         records2 = cursor.fetchall()
 
         return round((records1[0][0]/records2[0][0])*100, 2)
-  
+
     def get_arrest_ranges(self, low, high):
         """Gets the number of people with in the range 
         of drug sale arrests proivided from the dataset"""
