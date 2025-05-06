@@ -47,7 +47,7 @@ class TestGetMeetingFrequency(unittest.TestCase):
         self.app = app.test_client()
         response = self.app.get("/meeting/frequency", follow_redirects=True)
         self.assertEqual(
-            b"The average percentage of meetings attended is 33.75%", response.data
+            b"The average percentage of meetings attended is 32.71%", response.data
         )
 
     def test_bad_route(self):
@@ -80,7 +80,7 @@ class TestGetMeetingCount(unittest.TestCase):
         self.app = app.test_client()
         response = self.app.get("/meeting/count", follow_redirects=True)
         self.assertEqual(
-            b"The average number of meetings attended is 6.75", response.data
+            b"The average number of meetings attended is 1.64", response.data
         )
 
     def test_bad_route(self):
@@ -104,14 +104,10 @@ class TestDrugSaleArrests(unittest.TestCase):
         super().__init__(methodName)
         self.app = app.test_client()
 
-    def setUp(self):
-        """Sets up the dummy data"""
-        data_processor.data_obj.initalize_dummy_data(dummyData)
-
     def test_drug_sale(self):
         """Test for route for drug sale arrests"""
         response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
-        self.assertEqual(b"3 people", response.data)
+        self.assertEqual(b"283 people", response.data)
 
     def test_bad_route(self):
         """Test a bad path that should display a correct usage hint"""

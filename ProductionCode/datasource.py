@@ -37,7 +37,7 @@ class DataSource:
         records = cursor.fetchall()
 
         return round(records[0][0], 2)
- 
+
     def get_freq_meetings_attended(self):
         """Gets the frequency of self help meetings attended from the dataset"""
 
@@ -53,9 +53,10 @@ class DataSource:
         records2 = cursor.fetchall()
 
         return round((records1[0][0]/records2[0][0])*100, 2)
-    
+  
     def get_arrest_ranges(self, low, high):
-        """Gets the frequency of self help meetings attended from the dataset"""
+        """Gets the number of people with in the range 
+        of drug sale arrests proivided from the dataset"""
 
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
