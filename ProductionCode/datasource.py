@@ -16,8 +16,8 @@ class DataSource:
         in the psqlConfig.py file. Returns the connection object."""
 
         try:
-            connection = psycopg2.connect(database=config.database,
-                                          user=config.user, password=config.password,
+            connection = psycopg2.connect(database=config.DATABASE,
+                                          user=config.USER, password=config.PASSWORD,
                                           host="localhost")
         except ConnectionError as e:
             print("Connection error: ", e)
