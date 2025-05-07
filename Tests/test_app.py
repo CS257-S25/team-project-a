@@ -9,7 +9,6 @@ class TestMainPage(unittest.TestCase):
     """Tests the apps home page"""
 
     def setUp(self):
-        return super().setUp()
         self.app = app.test_client()
 
     def test_route(self):
