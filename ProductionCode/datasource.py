@@ -8,12 +8,12 @@ class DataSource:
     """Sets up a database that can run sql commands"""
 
     def __init__(self):
-        '''Constructor that initiates connection to database'''
+        """Constructor that initiates connection to database"""
         self.connection = self.connect()
 
     def connect(self):
-        '''Initiates connection to database using information in the psqlConfig.py file.
-        Returns the connection object.'''
+        """Initiates connection to database using information in the psqlConfig.py file.
+        Returns the connection object."""
 
         try:
             connection = psycopg2.connect(database=config.database,
