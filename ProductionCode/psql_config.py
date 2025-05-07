@@ -1,5 +1,5 @@
 """Config info"""
 
-database = 'teama'
-user = 'teama'
-password = 'barn746tiger'
+DATABASE = 'teama'
+USER = 'teama'
+PASSWORD = 'test'
