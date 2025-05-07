@@ -12,8 +12,8 @@ class DataSource:
         self.connection = self.connect()
 
     def connect(self):
-        """Initiates connection to database using information in the psqlConfig.py file.
-        Returns the connection object."""
+        """Initiates connection to database using information 
+        in the psqlConfig.py file. Returns the connection object."""
 
         try:
             connection = psycopg2.connect(database=config.database,
