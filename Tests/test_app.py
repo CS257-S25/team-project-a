@@ -2,9 +2,7 @@
 
 import unittest
 from unittest.mock import MagicMock, patch
-from test_cl import dummyData
 from app import app, drug_sale, get_meeting_count, get_meeting_freq
-from ProductionCode import data_processor
 
 
 class TestMainPage(unittest.TestCase):
@@ -39,7 +37,7 @@ class TestGetMeetingFrequency(unittest.TestCase):
     def __init__(self, methodName="runTest"):
         super().__init__(methodName)
         self.app = app.test_client()
-    
+
     def setUp(self):
         #create a mock connection and cursor
         self.mock_conn = MagicMock()
