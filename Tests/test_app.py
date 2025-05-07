@@ -1,8 +1,9 @@
 """Test code for flask app"""
 
 import unittest
+from unittest.mock import MagicMock, patch
 from test_cl import dummyData
-from app import app
+from app import app, drug_sale, get_meeting_count, get_meeting_freq
 from ProductionCode import data_processor
 
 
@@ -15,6 +16,7 @@ class TestMainPage(unittest.TestCase):
 
     def test_route(self):
         """Tests that the home page has the correct welcome text"""
+
         self.app = app.test_client()
         response = self.app.get("/", follow_redirects=True)
         self.assertEqual(
@@ -37,31 +39,23 @@ class TestGetMeetingFrequency(unittest.TestCase):
     def __init__(self, methodName="runTest"):
         super().__init__(methodName)
         self.app = app.test_client()
-
+    
     def setUp(self):
-        """Sets up the dummy data"""
-        data_processor.data_obj.initalize_dummy_data(dummyData)
+        #create a mock connection and cursor
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
 
-    def test_route(self):
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
-        self.app = app.test_client()
-        response = self.app.get("/meeting/frequency", follow_redirects=True)
-        self.assertEqual(
-            b"The average percentage of meetings attended is 32.71%", response.data
-        )
-
-    def test_bad_route(self):
-        """Test a bad path that should display a correct usage hint"""
-        self.app = app.test_client()
-        response = self.app.get("/0", follow_redirects=True)
-        self.assertEqual(
-            b"404 Not Found: The requested URL was not found on the server. "
-            + b"If you entered the URL manually please check your spelling and try again. "
-            + b"Sorry, wrong format, do this instead "
-            + b"(url)/meeting/[frequency, count] or "
-            + b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
-            response.data,
-        )
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchone.return_value(
+            "The average percentage of meetings attended is 32.71%"
+            )
+        self.assertEqual(get_meeting_freq(),
+            "The average percentage of meetings attended is 32.71%"
+            )
 
 
 class TestGetMeetingCount(unittest.TestCase):
@@ -72,29 +66,23 @@ class TestGetMeetingCount(unittest.TestCase):
         self.app = app.test_client()
 
     def setUp(self):
-        """Sets up the dummy data"""
-        data_processor.data_obj.initalize_dummy_data(dummyData)
+        #create a mock connection and cursor
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
 
-    def test_route(self):
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
-        self.app = app.test_client()
-        response = self.app.get("/meeting/count", follow_redirects=True)
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchone.return_value(
+            "The average number of meetings attended is 1.64"
+            )
         self.assertEqual(
-            b"The average number of meetings attended is 1.64", response.data
+            get_meeting_count(),
+            "The average number of meetings attended is 1.64"
         )
 
-    def test_bad_route(self):
-        """Test a bad path that should display a correct usage hint"""
-        self.app = app.test_client()
-        response = self.app.get("/0", follow_redirects=True)
-        self.assertEqual(
-            b"404 Not Found: The requested URL was not found on the server. "
-            + b"If you entered the URL manually please check your spelling and try again. "
-            + b"Sorry, wrong format, do this instead "
-            + b"(url)/meeting/[frequency, count] or "
-            + b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
-            response.data,
-        )
 
 
 class TestDrugSaleArrests(unittest.TestCase):
@@ -104,20 +92,15 @@ class TestDrugSaleArrests(unittest.TestCase):
         super().__init__(methodName)
         self.app = app.test_client()
 
-    def test_drug_sale(self):
-        """Test for route for drug sale arrests"""
-        response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
-        self.assertEqual(b"283 people", response.data)
+    def setUp(self):
+        #create a mock connection and cursor
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
 
-    def test_bad_route(self):
-        """Test a bad path that should display a correct usage hint"""
-        self.app = app.test_client()
-        response = self.app.get("/0", follow_redirects=True)
-        self.assertEqual(
-            b"404 Not Found: The requested URL was not found on the server. "
-            + b"If you entered the URL manually please check your spelling and try again. "
-            + b"Sorry, wrong format, do this instead "
-            + b"(url)/meeting/[frequency, count] or "
-            + b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
-            response.data,
-        )
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_drug_sale(self, mock_connect):
+        """Test for route for drug sale arrests"""
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchone.return_value("283 people")
+        self.assertEqual(drug_sale(1, 10), "283 people")

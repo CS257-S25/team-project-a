@@ -2,4 +2,4 @@
 
 DATABASE = 'teama'
 USER = 'teama'
-PASSWORD = 'test'
+PASSWORD = 'house598cat'
