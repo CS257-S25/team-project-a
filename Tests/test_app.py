@@ -8,8 +8,8 @@ from app import app, drug_sale, get_meeting_count, get_meeting_freq
 class TestMainPage(unittest.TestCase):
     """Tests the apps home page"""
 
-    def __init__(self, methodName="runTest"):
-        super().__init__(methodName)
+    def setUp(self):
+        return super().setUp()
         self.app = app.test_client()
 
     def test_route(self):
@@ -34,14 +34,11 @@ class TestMainPage(unittest.TestCase):
 class TestGetMeetingFrequency(unittest.TestCase):
     """Tests the path based method calls and pages"""
 
-    def __init__(self, methodName="runTest"):
-        super().__init__(methodName)
-        self.app = app.test_client()
-
     def setUp(self):
         #create a mock connection and cursor
         self.mock_conn = MagicMock()
         self.mock_cursor = self.mock_conn.cursor.return_value
+        self.app = app.test_client()
 
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_route(self, mock_connect):
@@ -59,14 +56,11 @@ class TestGetMeetingFrequency(unittest.TestCase):
 class TestGetMeetingCount(unittest.TestCase):
     """Tests the path based method calls and pages"""
 
-    def __init__(self, methodName="runTest"):
-        super().__init__(methodName)
-        self.app = app.test_client()
-
     def setUp(self):
         #create a mock connection and cursor
         self.mock_conn = MagicMock()
         self.mock_cursor = self.mock_conn.cursor.return_value
+        self.app = app.test_client()
 
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_route(self, mock_connect):
@@ -86,14 +80,11 @@ class TestGetMeetingCount(unittest.TestCase):
 class TestDrugSaleArrests(unittest.TestCase):
     """Tests the drug sale arrests route"""
 
-    def __init__(self, methodName="runTest"):
-        super().__init__(methodName)
-        self.app = app.test_client()
-
     def setUp(self):
         #create a mock connection and cursor
         self.mock_conn = MagicMock()
         self.mock_cursor = self.mock_conn.cursor.return_value
+        self.app = app.test_client()
 
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_drug_sale(self, mock_connect):
