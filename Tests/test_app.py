@@ -3,7 +3,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
 from app import app, drug_sale, get_meeting_count, get_meeting_freq
-from ProductionCode.datasource import DataSource
 
 
 class TestMainPage(unittest.TestCase):
