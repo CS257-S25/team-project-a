@@ -5,29 +5,29 @@ from unittest.mock import MagicMock, patch
 from app import app, drug_sale, get_meeting_count, get_meeting_freq
 
 
-# class TestMainPage(unittest.TestCase):
-#     """Tests the apps home page"""
+class TestMainPage(unittest.TestCase):
+    """Tests the apps home page"""
 
-#     def setUp(self):
-#         self.app = app.test_client()
+    def setUp(self):
+        self.app = app.test_client()
 
-#     def test_route(self):
-#         """Tests that the home page has the correct welcome text"""
+    def test_route(self):
+        """Tests that the home page has the correct welcome text"""
 
-#         self.app = app.test_client()
-#         response = self.app.get("/", follow_redirects=True)
-#         self.assertEqual(
-#             b"Hello! Welcome to our website with the amazingly"
-#             b"curated title: Analyzing Criminal Drug Abuse Treatment in Females"
-#             b"\nAlso known as drug_abuse_treatment.py"
-#             b"\n"
-#             b"\n"
-#             b"Here are the main directories of our program for your research/interests: "
-#             b"\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]"
-#             b"\nFor drug sale arrests amount: "
-#             b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
-#             response.data,
-#         )
+        self.app = app.test_client()
+        response = self.app.get("/", follow_redirects=True)
+        self.assertEqual(
+            b"Hello! Welcome to our website with the amazingly"
+            b"curated title: Analyzing Criminal Drug Abuse Treatment in Females"
+            b"\nAlso known as drug_abuse_treatment.py"
+            b"\n"
+            b"\n"
+            b"Here are the main directories of our program for your research/interests: "
+            b"\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]"
+            b"\nFor drug sale arrests amount: "
+            b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
+            response.data,
+        )
 
 
 class TestGetMeetingFrequency(unittest.TestCase):
