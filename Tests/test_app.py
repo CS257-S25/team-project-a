@@ -1,9 +1,9 @@
 """Test code for flask app"""
 
 import unittest
-from test_cl import dummyData
+from unittest.mock import MagicMock, patch
 from app import app
-from ProductionCode import data_processor
+from ProductionCode.datasource import DataSource
 
 
 class TestMainPage(unittest.TestCase):
@@ -38,12 +38,10 @@ class TestGetMeetingFrequency(unittest.TestCase):
         super().__init__(methodName)
         self.app = app.test_client()
 
-    def setUp(self):
-        """Sets up the dummy data"""
-        data_processor.data_obj.initalize_dummy_data(dummyData)
-
-    def test_route(self):
+    @patch('ProductionCode.datasource.DataSource.get_freq_meetings_attended')
+    def test_route(self, mock_get_freq_meeting_attended):
         """Tests a correct path that should display the methods result"""
+        mock_get_freq_meeting_attended.return_value = "32.71"
         self.app = app.test_client()
         response = self.app.get("/meeting/frequency", follow_redirects=True)
         self.assertEqual(
@@ -73,11 +71,18 @@ class TestGetMeetingCount(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.data_obj.initalize_dummy_data(dummyData)
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
 
-    def test_route(self):
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         self.app = app.test_client()
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchall.return_value = (
+            [[1.6357466063348416]]
+            )
         response = self.app.get("/meeting/count", follow_redirects=True)
         self.assertEqual(
             b"The average number of meetings attended is 1.64", response.data
@@ -106,10 +111,18 @@ class TestDrugSaleArrests(unittest.TestCase):
 
     def setUp(self):
         """Sets up the dummy data"""
-        data_processor.data_obj.initalize_dummy_data(dummyData)
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
 
-    def test_drug_sale(self):
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_drug_sale(self, mock_connect):
         """Test for route for drug sale arrests"""
+        self.app = app.test_client()
+        mock_connect.return_value = self.mock_conn
+        #set what it should return
+        self.mock_cursor.fetchall.return_value = (
+            [None]*283
+            )
         response = self.app.get('/drug-sale-arrests/1/10', follow_redirects=True)
         self.assertEqual(b"283 people", response.data)
 
