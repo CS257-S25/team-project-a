@@ -52,6 +52,9 @@ class DataSource:
 
         records2 = cursor.fetchall()
 
+        print(records1)
+
+        print(records2)
         return round((records1[0][0]/records2[0][0])*100, 2)
 
     def get_arrest_ranges(self, low, high):
