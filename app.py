@@ -5,8 +5,6 @@ from ProductionCode.datasource import DataSource
 
 app = Flask(__name__)
 
-#data_source = DataSource()
-
 @app.route('/')
 def homepage():
     """Creates a home page that has user instructions"""
@@ -26,10 +24,10 @@ def page_not_found(e):
     "(url)/meeting/[frequency, count] or " \
     "(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount"
 
-@app.errorhandler(500)
-def python_bug(e):
-    """Makes a page when there is a bug in the underlying python code"""
-    return "Eek, a bug: "+str(e)
+# @app.errorhandler(500)
+# def python_bug(e):
+#     """Makes a page when there is a bug in the underlying python code"""
+#     return "Eek, a bug: "+str(e)
 
 @app.route('/meeting/frequency', strict_slashes=False)
 def get_meeting_freq():
