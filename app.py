@@ -1,6 +1,6 @@
 """This is a Flask App that allows for web based user database interaction"""
 
-from flask import Flask
+from flask import Flask, render_template
 from ProductionCode.datasource import DataSource
 
 app = Flask(__name__)
@@ -28,6 +28,12 @@ def page_not_found(e):
 # def python_bug(e):
 #     """Makes a page when there is a bug in the underlying python code"""
 #     return "Eek, a bug: "+str(e)
+
+@app.route('/meeting', strict_slashes=False)
+def get_meeting():
+    """Makes a page that runs when a user request is given for meeting data"""
+    data_source = DataSource()
+    return render_template('self_help_meeting_page.html', count=data_source.get_ave_meetings_attended(), freq = data_source.get_freq_meetings_attended())
 
 @app.route('/meeting/frequency', strict_slashes=False)
 def get_meeting_freq():
