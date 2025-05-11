@@ -90,7 +90,7 @@ class TestProcessInput(unittest.TestCase):
     def test_arrests_command_line_bad_input(self):
         """Testing that the comand line command returns the usage case 
         when invalid input is passed in"""
-        sys.argv = ["basic_cl.py", "--sell-arrests", "sbjs"]
+        sys.argv = ["basic_cl.py", "--sell-arrests", "sbjs", "202"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
