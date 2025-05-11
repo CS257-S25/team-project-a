@@ -45,7 +45,7 @@ def get_meeting_freq():
     returns a string"""
     data_source = DataSource()
     freq = data_source.get_freq_meetings_attended()
-    return "The average percentage of meetings attended is "+str(freq)+"%"
+    return "The average percentage of self-help meetings attended is "+str(freq)+"%"
 
 @app.route('/meeting/count', strict_slashes=False)
 def get_meeting_count():
@@ -53,14 +53,16 @@ def get_meeting_count():
     returns a string"""
     data_source = DataSource()
     count = data_source.get_ave_meetings_attended()
-    return "The average number of meetings attended is "+str(count)
+    return "The average number of self-help meetings attended is "+str(count)
 
 @app.route('/arrests/<lower>/<upper>', strict_slashes=False)
 def drug_sale(lower, upper):
     """Determines the route to the drug sale arrests page 
     takes in a lower and upper bound for the number of arrests, returns a string"""
     data_source = DataSource()
-    return str(data_source.get_arrest_ranges(int(lower), int(upper))) + " people"
+    return ("The number of people who were arrested between "+
+    str(lower)+" and "+str(upper)+" times is: "+
+    str(data_source.get_arrest_ranges(int(lower), int(upper))))
 
 if __name__ == '__main__':
     app.run()
