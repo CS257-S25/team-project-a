@@ -20,9 +20,8 @@ def homepage():
 @app.errorhandler(404)
 def page_not_found(e):
     """Makes a page for the user when an incorrect url is given"""
-    return str(e)+" Sorry, wrong format, do this instead " \
-    "(url)/meeting/[frequency, count] or " \
-    "(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount"
+    return str(e)+" Sorry, wrong format, do this instead /meeting/frequency or " \
+        "/meeting/count or arrests/low/high"
 
 @app.errorhandler(500)
 def python_bug(e):
@@ -51,7 +50,7 @@ def get_meeting_count():
     count = data_source.get_ave_meetings_attended()
     return "The average number of meetings attended is "+str(count)
 
-@app.route('/drug-sale-arrests/<lower>/<upper>', strict_slashes=False)
+@app.route('/arrests/<lower>/<upper>', strict_slashes=False)
 def drug_sale(lower, upper):
     """Determines the route to the drug sale arrests page"""
     data_source = DataSource()
