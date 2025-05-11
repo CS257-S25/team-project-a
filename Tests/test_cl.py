@@ -49,10 +49,48 @@ class TestProcessInput(unittest.TestCase):
         printed_output = sys.stdout.getvalue().strip()
         self.assertEqual(printed_output, "3 people", "should be 3 people")
 
+    def test_command_line_no_input(self):
+        """Testing that the comand line command returns the usage case 
+        when invalid input is passed in"""
+        sys.argv = []
+        sys.stdout = StringIO()
+        cl.main()
+        printed_output = sys.stdout.getvalue().strip()
+        self.assertEqual(
+            printed_output,
+            "Usage:"
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+            "Should be Usage:"
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+        )
+
     def test_arrests_command_line_wrong_input(self):
         """Testing that the comand line command returns the usage case 
         when invalid input is passed in"""
         sys.argv = ["basic_cl.py", "--sell-arrests"]
+        sys.stdout = StringIO()
+        cl.main()
+        printed_output = sys.stdout.getvalue().strip()
+        self.assertEqual(
+            printed_output,
+            "Usage:"
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+            "Should be Usage:"
+            '\npython3 cl.py --meeting-frequency'
+            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+        )
+
+    def test_arrests_command_line_bad_input(self):
+        """Testing that the comand line command returns the usage case 
+        when invalid input is passed in"""
+        sys.argv = ["basic_cl.py", "--sell-arrests", "sbjs"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
@@ -141,7 +179,7 @@ class TestDrugSaleArrests(unittest.TestCase):
     def test_normal_range(self):
         """Checks that the meeting frequency is returned"""
         self.assertEqual(data_processor.drug_sale_arrests(1, 10), 3, "Should be 3")
-
+    
     def test_small_range(self):
         """Checks that the meeting frequency is returned"""
         self.assertEqual(data_processor.drug_sale_arrests(2, 4), 0, "Should be 0")

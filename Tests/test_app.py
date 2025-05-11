@@ -99,6 +99,25 @@ class TestGetMeetingCount(unittest.TestCase):
         )
 
 
+# class TestGetMeetingPage(unittest.TestCase):
+#     """Tests the HTML meeting page"""
+
+#     def test_route(self):
+#         """Tests a correct path that should display the methods result"""
+#         self.app = app.test_client()
+#         response = self.app.get("/meeting", follow_redirects=True)
+#         print(response.data)
+#         self.assertEqual(
+#             b"<html>\n\t<head>\n\t\t<title>Self Help Meeting " +
+#             b"Attendance\n\t</title>\n\t</head>\n\t<body>\n\t\t<h1>" +
+#             b"Self Help Meeting Attendance</h1>\n\t\t" +
+#             b"<ul>\n\t\t\t<li>Average meetings attended by " +
+#             b"study participants: {{count}}</li>\n\t\t\t<li>" +
+#             b"Average frequency of meeting attendance " +
+#             b"by study participants: {{freq}}%</li>\n\t\t</ul>\n\t</body>\n</html>",
+#             response.data
+#         )
+
 class TestDrugSaleArrests(unittest.TestCase):
     """Tests the drug sale arrests route"""
 
