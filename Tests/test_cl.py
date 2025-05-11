@@ -145,6 +145,16 @@ class TestProcessInput(unittest.TestCase):
         )
 
 
+class TestData(unittest.TestCase):
+    """Testing the get_cell method"""
+
+    def setUp(self):
+        """Sets up the dummy data"""
+        data_processor.data_obj.initalize_dummy_data(dummyData)
+
+    def testDataInitialized(self):
+        self.assertEqual(data_processor.data_obj.is_data_initialized(), True)
+
 class TestMeetingFrequency(unittest.TestCase):
     """Testing the get_row_titles method"""
 
