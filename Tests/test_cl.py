@@ -152,7 +152,8 @@ class TestData(unittest.TestCase):
         """Sets up the dummy data"""
         data_processor.data_obj.initalize_dummy_data(dummyData)
 
-    def testDataInitialized(self):
+    def test_data_initialized(self):
+        """Tests if the data initialized method works"""
         self.assertEqual(data_processor.data_obj.is_data_initialized(), True)
 
 class TestMeetingFrequency(unittest.TestCase):
