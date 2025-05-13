@@ -1,12 +1,15 @@
 <html>
      <head>
          <title>Self Help Meeting Attendance</title>
+         <link rel="stylesheet" href="{{ url_for('static', filename='self_help_meeting_page.css') }}">
      </head>
      <body>
         <h1>Self Help Meeting Attendance</h1>
-        <ul>
-            <li>Average meetings attended by study participants: {{count}}</li>
-            <li>Average frequency of meeting attendance by study participants: {{freq}}%</li>
-        </ul>
+        <div class="info">
+            <ul>
+                <li>Average meetings attended by study participants: {{count}}</li>
+                <li>Average frequency of meeting attendance by study participants: {{freq}}%</li>
+            </ul>
+        </div>
      </body>
  </html>
