@@ -49,8 +49,27 @@ class TestProcessInput(unittest.TestCase):
         printed_output = sys.stdout.getvalue().strip()
         self.assertEqual(printed_output, "3 people", "should be 3 people")
 
+    def test_command_line_no_input(self):
+        """Testing that the comand line command returns the usage case
+        when invalid input is passed in"""
+        sys.argv = []
+        sys.stdout = StringIO()
+        cl.main()
+        printed_output = sys.stdout.getvalue().strip()
+        self.assertEqual(
+            printed_output,
+            "Usage:"
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+            "Should be Usage:"
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+        )
+
     def test_arrests_command_line_wrong_input(self):
-        """Testing that the comand line command returns the usage case 
+        """Testing that the comand line command returns the usage case
         when invalid input is passed in"""
         sys.argv = ["basic_cl.py", "--sell-arrests"]
         sys.stdout = StringIO()
@@ -59,17 +78,36 @@ class TestProcessInput(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+        )
+
+    def test_arrests_command_line_bad_input(self):
+        """Testing that the comand line command returns the usage case
+        when invalid input is passed in"""
+        sys.argv = ["basic_cl.py", "--sell-arrests", "sbjs", "202"]
+        sys.stdout = StringIO()
+        cl.main()
+        printed_output = sys.stdout.getvalue().strip()
+        self.assertEqual(
+            printed_output,
+            "Usage:"
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
+            "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
+            "Should be Usage:"
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
     def test_meetings_command_line_wrong_input(self):
-        """Testing that the comand line command returns the usage case 
+        """Testing that the comand line command returns the usage case
         when invalid input is passed in"""
         sys.argv = ["basic_cl.py", "--meetings"]
         sys.stdout = StringIO()
@@ -78,17 +116,17 @@ class TestProcessInput(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
     def test_command_line_wrong_input(self):
-        """Testing that the comand line command returns the usage case 
+        """Testing that the comand line command returns the usage case
         when invalid input is passed in"""
         sys.argv = ["basic_cl.py"]
         sys.stdout = StringIO()
@@ -97,15 +135,26 @@ class TestProcessInput(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
+
+class TestData(unittest.TestCase):
+    """Testing the get_cell method"""
+
+    def setUp(self):
+        """Sets up the dummy data"""
+        data_processor.data_obj.initalize_dummy_data(dummyData)
+
+    def test_data_initialized(self):
+        """Tests if the data initialized method works"""
+        self.assertEqual(data_processor.data_obj.is_data_initialized(), True)
 
 class TestMeetingFrequency(unittest.TestCase):
     """Testing the get_row_titles method"""
@@ -176,7 +225,9 @@ class TestGetSum(unittest.TestCase):
 
     def test_correct_values(self):
         """Testing that for a correct values the sum is output"""
-        self.assertEqual(data_processor.get_sum_array(["1", "2", "3"]), 6, "should be 6")
+        self.assertEqual(
+            data_processor.get_sum_array(["1", "2", "3"]), 6, "should be 6"
+        )
 
     def test_incorrect_value(self):
         """Testing that for incorrect values the sum is unchanhged"""
@@ -188,7 +239,9 @@ class TestGetSum(unittest.TestCase):
 
     def test_blank_value(self):
         """Testing that for incorrect values the sum is unchanhged"""
-        self.assertEqual(data_processor.get_sum_array(["1", "2", "3", ""]), 6, "should be 6")
+        self.assertEqual(
+            data_processor.get_sum_array(["1", "2", "3", ""]), 6, "should be 6"
+        )
 
 
 class TestGetMax(unittest.TestCase):
@@ -208,7 +261,9 @@ class TestGetMax(unittest.TestCase):
 
     def test_blank_value(self):
         """Testing that for incorrect values the max is unchanhged"""
-        self.assertEqual(data_processor.get_max_num(["1", "2", "3", ""]), 3, "should be 3")
+        self.assertEqual(
+            data_processor.get_max_num(["1", "2", "3", ""]), 3, "should be 3"
+        )
 
 
 class TestGetTotalValid(unittest.TestCase):
@@ -316,12 +371,12 @@ class TestPrintUsageStatement(unittest.TestCase):
         self.assertEqual(
             printed_output,
             "Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
             "Should be Usage:"
-            '\npython3 cl.py --meeting-frequency'
-            '\npython3 cl.py --meeting-count'
+            "\npython3 cl.py --meeting-frequency"
+            "\npython3 cl.py --meeting-count"
             "\npython3 cl.py --sellArrests lowerBoundCount upperBoundCount",
         )
 
