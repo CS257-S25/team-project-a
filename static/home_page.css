@@ -1,7 +1,9 @@
-h1, h2 {
+h1 {
     font-family: Verdana, Geneva, sans-serif;
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
     background-color: 7D9599;
     color: white;
     text-align: center;
@@ -18,41 +20,69 @@ li {
     line-height: 1.4;
 }
 
+nav {
+    display: flex;
+    background-color:  gray;
+    height: 36px;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-bottom: 2px;
+}
+
 nav li {
     float: left;
     font-size: 1.1em;
     font-weight: bold;
 }
 
-/* The nav bar is an unordered list whose items are not bulleted. 
-     We only want to apply this styling to unordered lists inside of the nav
-     tag.
-*/
+nav div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav div a.logo {
+    margin-left: 1em;
+    margin-right: 2em;
+}
+
 nav ul {
-    border: 2px solid 789188;
+    height: 100%;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
 }
 
-/* Navigation bar list items should render starting at the left margin. */
-nav li {
-    float: middle;
+nav div ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    height: 100%;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
-/* Navigation bar items should link to elements on the page, or to other pages.
-     This is the "a" tag. So this says "apply this style to links within the nav bar".
-*/
 nav li a {
     display: block;
-    color: 789188;
-    text-decoration: none;
+    color: black;
     text-align: center;
-    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li:hover {
+    background-color: blue;
 }
 
 /* When you mouse over something in the nav bar, turn it blue. */
-nav li a:hover {
+nav li:hover a {
     color: white;
-    background-color: 789188;
+}
+
+div search {
+    margin-left: auto;
 }
 

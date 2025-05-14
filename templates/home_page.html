@@ -1,12 +1,24 @@
 <html>
-    <body>
-        <h1><link rel="stylesheet" href="home_page.css"> Drug Abuse Treatment Database </h1>
+  <head>
+    <title>Drug Abuse Outcomes</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
+  </head>
+  <body>
+    <h1> Drug Abuse Treatment Database </h1>
     <nav>
-    <ul>
-        <li><a href="url/sellArrest/Lwer/Upper">Arrests</a></li>
-        <li><a href="url/selfHelpAvg">Self Help</a></li>
-        <li><a href="url/dataOverview">Data Overview</a></li>
-    </ul>
+      <div>
+        <a class="logo" href="">logo</a>
+        <div class="pages">
+        <ul>
+          <li><a href="meeting">Meeting info</a></li>
+          <li><a href="sellArrest/Lower/Upper">Arrests</a></li>
+          <li><a href="dataOverview">Data Overview</a></li>
+        </ul>
+        </div>
+      </div>
+      <div>
+        <input type="text" placeholder="Search...">
+      </div>
     </nav>
 <div style="
     display: flex;
@@ -36,5 +48,5 @@
   </div>
 </div>
 
-    </body>
+</body>
 </html>

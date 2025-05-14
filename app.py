@@ -8,14 +8,15 @@ app = Flask(__name__)
 @app.route('/')
 def homepage():
     """Creates a homepage that has user instructions returns a string"""
-    return 'Hello! Welcome to our website with the amazingly' \
-        'curated title: Analyzing Criminal Drug Abuse Treatment in Females' \
-        '\nAlso known as drug_abuse_treatment.py' \
-        '\n' \
-        '\n' \
-        'Here are the main directories of our program for your research/interests: ' \
-        '\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]' \
-        '\nFor drug sale arrests amount: (url)/drug-sale-arrests/lowerBoundCount/upperBoundCount' \
+    return render_template('home_page.html')
+    # return 'Hello! Welcome to our website with the amazingly' \
+    #     'curated title: Analyzing Criminal Drug Abuse Treatment in Females' \
+    #     '\nAlso known as drug_abuse_treatment.py' \
+    #     '\n' \
+    #     '\n' \
+    #     'Here are the main directories of our program for your research/interests: ' \
+    #     '\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]' \
+    #     '\nFor drug sale arrests amount: (url)/drug-sale-arrests/lowerBoundCount/upperBoundCount' \
 
 @app.errorhandler(404)
 def page_not_found(e):
