@@ -74,7 +74,7 @@ nav li a {
 }
 
 nav li:hover {
-    background-color: blue;
+    background-color: #5684b8;
 }
 
 /* When you mouse over something in the nav bar, turn it blue. */
@@ -84,5 +84,13 @@ nav li:hover a {
 
 div search {
     margin-left: auto;
+}
+
+div.margin {
+    display: flex;
+    color: white;
+    background-color: white;
+    height: 1.5em;
+    width: 100%;
 }
 
