@@ -99,22 +99,3 @@ div.margin {
     height: 1.5em;
     width: 100%;
 }
-
-div.info {
-    display: block;
-    color: white;
-    background-color: blue;
-    text-decoration: none;
-    text-align: center;
-    padding: 14px 16px;
-}
-
-div.info ul {
-    list-style-type: none;
-    overflow: hidden;
-}
-
-div.info li {
-    float: left;
-    padding: 14px 16px;
-}

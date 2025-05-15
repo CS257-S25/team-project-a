@@ -41,6 +41,20 @@ def get_meeting():
                            count=data_source.get_ave_meetings_attended(),
                            freq = data_source.get_freq_meetings_attended())
 
+@app.route('/arrests', strict_slashes=False)
+def get_arrests():
+    """Makes a page that runs when a user request is given for arrest data
+    returns an HTML page"""
+    data_source = DataSource()
+    return render_template('arrest_page.html')
+
+@app.route('/dataOverview', strict_slashes=False)
+def get_data_overview():
+    """Makes a page that runs when a user request is given for the graphical data
+    returns an HTML page"""
+    data_source = DataSource()
+    return render_template('data_overview_page.html')
+
 @app.route('/meeting/frequency', strict_slashes=False)
 def get_meeting_freq():
     """Makes a page that runs when a user request is given for meeting data
