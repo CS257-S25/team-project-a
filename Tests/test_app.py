@@ -23,7 +23,8 @@ from app import app
 #             b"\n"
 #             b"\n"
 #             b"Here are the main directories of our program for your research/interests: "
-#             b"\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]"
+#             b"\nFor frequencies or counts "
+#             b"of meeting attendance: (url)/meeting/[frequency], [count]"
 #             b"\nFor drug sale arrests amount: "
 #             b"(url)/drug-sale-arrests/lowerBoundCount/upperBoundCount",
 #             response.data,
