@@ -16,7 +16,8 @@ def homepage():
     #     '\n' \
     #     'Here are the main directories of our program for your research/interests: ' \
     #     '\nFor frequencies or counts of meeting attendance: (url)/meeting/[frequency], [count]' \
-    #     '\nFor drug sale arrests amount: (url)/drug-sale-arrests/lowerBoundCount/upperBoundCount' \
+    #     '\nFor drug sale arrests amount: \
+    #      (url)/drug-sale-arrests/lowerBoundCount/upperBoundCount' \
 
 @app.errorhandler(404)
 def page_not_found(e):
