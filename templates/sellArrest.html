@@ -1,7 +1,7 @@
 <html>
      <head>
          <title>Arrest Info</title>
-         <link rel="stylesheet" href="{{ url_for('static', filename='arrest_page.css') }}">
+         <link rel="stylesheet" href="{{ url_for('static', filename='sellArrest.css') }}">
      </head>
      <body>
         <h1> Drug Abuse Treatment Database </h1>
@@ -13,7 +13,7 @@
             <div class="pages">
             <ul>
             <li><a href="meeting">Meeting info</a></li>
-            <li><a href="arrests">Arrests</a></li>
+            <li><a href="/">Arrests</a></li>
             <li><a href="dataOverview">Data Overview</a></li>
             </ul>
             </div>
@@ -25,5 +25,19 @@
         <div class = "margin">
         </div>
         <h2>Arrest Info</h2>
+
+        <p>
+            Please enter your lower and upper bounds as directed.
+        </p>
+
+
+        <form action="/sellArrest/lower/upper" method="GET">
+            <label for="lower">Lower bound:</label><br>
+            <input type="text" id="lower" name="lower"><br>
+            <label for="upper">Upper bound:</label><br>
+            <input type="text" id="upper" name="upper">
+            <input type="submit" value="Submit">
+        </form>
+
      </body>
  </html>
