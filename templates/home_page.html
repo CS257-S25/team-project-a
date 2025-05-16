@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Drug Abuse Outcomes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+      
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1> Drug Abuse Treatment Database </h1>
+    <nav>
+      <div>
+        <a class="logo" href="/">
+          <img src="{{ url_for('static', filename='House_Icon.png') }}" alt="">
+        </a>
+        <div class="pages">
+        <ul>
+          <li><a href="meeting">Meeting info</a></li>
+          <li><a href="sellArrest">Arrests</a></li>
+          <li><a href="dataOverview">Data Overview</a></li>
+        </ul>
+        </div>
+      </div>
+      <div class="search">
+            <form action="search" method="post">
+               <input type="text" placeholder="Search..." id="tags" name="search">
+               <script>
+                  $( function() {
+                     var availableTags = [
+                        {% for page in pages %}
+                              "{{page}}",
+                        {% endfor %}
+                     ];
+                     $( "#tags" ).autocomplete({
+                        source: availableTags
+                     });
+                  } );
+               </script>
+               <input type="submit" value="Submit">
+            </form>
+         </div>
+    </nav>
+    <div class = "margin">
+    </div>
+<div style="
+    display: flex;
+    gap: 10px;           /* space between the boxes */
+">
+  <div style="
+    flex: 1;              /* take up equal share of the row */
+    height: 700px;
+    overflow: auto;
+    background-color: 789188;
+    color: white;
+    font-family: sans-serif;
+    padding: 10px;
+  ">
+    <div class="info">
+      <h2>Info:</h2>
+      <p>This is a site designed to facilitate the analysis of a 
+        survey on people who have suffered from drug abuse and as a result have been arrested.</p>
+    </div>
+  </div>
+  <div style="
+    flex: 1;
+    height: 550px;
+    overflow: auto;
+    background-color: 7D9599;
+    color: white;
+    font-family: sans-serif;
+    padding: 10px;
+  ">
+    <div class="how_to_use">
+      <h2>User Guide:</h2>
+      <p>The top bar can be used for navigaion by clicking on the buttons along the bar 
+        underneath the title of the page. Adidionaly there is a search bar where it is possible 
+        to look for a specific page.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

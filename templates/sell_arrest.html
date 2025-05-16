@@ -1,0 +1,66 @@
+<html>
+     <head>
+         <title>Arrest Info</title>
+         <link rel="stylesheet" href="{{ url_for('static', filename='sell_arrest.css') }}">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+         </script>  
+      
+         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+         </script>  
+      
+         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+            rel="stylesheet" type="text/css" />
+     </head>
+     <body>
+        <h1> Drug Abuse Treatment Database </h1>
+        <nav>
+        <div>
+            <a class="logo" href="/">
+            <img src="{{ url_for('static', filename='House_Icon.png') }}" alt="">
+            </a>
+            <div class="pages">
+            <ul>
+            <li><a href="meeting">Meeting info</a></li>
+            <li><a href="/">Arrests</a></li>
+            <li><a href="dataOverview">Data Overview</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="search">
+            <form action="search" method="post">
+               <input type="text" placeholder="Search..." id="tags" name="search">
+               <script>
+                  $( function() {
+                     var availableTags = [
+                        {% for page in pages %}
+                              "{{page}}",
+                        {% endfor %}
+                     ];
+                     $( "#tags" ).autocomplete({
+                        source: availableTags
+                     });
+                  } );
+               </script>
+               <input type="submit" value="Submit">
+            </form>
+         </div>
+        </nav>
+        <div class = "margin">
+        </div>
+        <h2>Arrest Info</h2>
+
+        <p>
+            Please enter your lower and upper bounds as directed.
+        </p>
+
+
+        <form action="/sellArrest/lower/upper" method="GET">
+            <label for="lower">Lower bound:</label><br>
+            <input type="text" id="lower" name="lower"><br>
+            <label for="upper">Upper bound:</label><br>
+            <input type="text" id="upper" name="upper">
+            <input type="submit" value="Submit">
+        </form>
+
+     </body>
+ </html>
