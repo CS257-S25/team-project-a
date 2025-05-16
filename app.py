@@ -78,7 +78,7 @@ def sell_arrest_spec(lower, upper):
     data_source = DataSource()
     lower = int(request.args.get('lower'))
     upper = int(request.args.get('upper'))
-    result = .get_arrest_ranges(lower, upper)
+    result = drug_sale_arrests(lower, upper)
 
     return render_template('sellArrestSpec.html', lower=lower, upper=upper, result=result)
 
