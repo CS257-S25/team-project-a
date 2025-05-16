@@ -42,13 +42,21 @@ def display_page_based_on_search():
         if response == "meetings":
             data_source = DataSource()
             return render_template(
-                "meetings.html", count=data_source.get_ave_meetings_attended(),
+                "self_help_meeting_page.html", count=data_source.get_ave_meetings_attended(),
                 freq=data_source.get_freq_meetings_attended(), pages=pages
             )
+        if response == "arrests":
+            pages = ["home", "meetings", "data overview", "arrests"]
+            data_source = DataSource()
+            return render_template('sellArrest.html', pages=pages)
+        if response == "data_overview":
+            pages = ["home", "meetings", "data overview", "arrests"]
+            data_source = DataSource()
+            return render_template('data_overview_page.html', pages=pages)
         if response == "home":
-            return render_template("index.html", pages=pages)
-        return render_template("index.html", pages=pages)
-    return render_template("index.html", pages=pages)
+            return render_template("home_page.html", pages=pages)
+        return render_template("home_page.html", pages=pages)
+    return render_template("home_page.html", pages=pages)
 
 @app.route('/meeting', strict_slashes=False)
 def get_meeting():
