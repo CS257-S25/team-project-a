@@ -41,12 +41,12 @@ def get_meeting():
                            count=data_source.get_ave_meetings_attended(),
                            freq = data_source.get_freq_meetings_attended())
 
-@app.route('/arrests', strict_slashes=False)
-def get_arrests():
-    """Makes a page that runs when a user request is given for arrest data
-    returns an HTML page"""
+@app.route('/sellArrest', strict_slashes=False)
+def sell_arrest():
+    """Determines the route to the drug arrests page
+    which will take in user input"""
     data_source = DataSource()
-    return render_template('arrest_page.html')
+    return render_template('sellArrest.html')
 
 @app.route('/dataOverview', strict_slashes=False)
 def get_data_overview():
@@ -71,14 +71,15 @@ def get_meeting_count():
     count = data_source.get_ave_meetings_attended()
     return "The average number of self-help meetings attended is "+str(count)
 
-@app.route('/arrests/<lower>/<upper>', strict_slashes=False)
-def drug_sale(lower, upper):
-    """Determines the route to the drug sale arrests page 
-    takes in a lower and upper bound for the number of arrests, returns a string"""
-    data_source = DataSource()
-    return ("The number of people who were arrested between "+
-    str(lower)+" and "+str(upper)+" times is: "+
-    str(data_source.get_arrest_ranges(int(lower), int(upper))))
+@app.route('/sellArrest/<lower>/<upper>', strict_slashes=False)
+def drug_arrests(lower, upper):
+    """Calls the get_arrest_ranges function from the core.py file
+    to display some dummy information"""
+    lower = int(request.args.get('lower'))
+    upper = int(request.args.get('upper'))
+    result = core.get_arrest_ranges(lower, upper)
+
+    return render_template('sellArrestSpec.html', lower=lower, upper=upper, result=result)
 
 if __name__ == '__main__':
     app.run()
