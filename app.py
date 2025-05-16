@@ -1,6 +1,6 @@
 """This is a Flask App that allows for web based user database interaction"""
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from ProductionCode.datasource import DataSource
 
 app = Flask(__name__)
@@ -78,7 +78,7 @@ def sell_arrest_spec(lower, upper):
     data_source = DataSource()
     lower = int(request.args.get('lower'))
     upper = int(request.args.get('upper'))
-    result = drug_sale_arrests(lower, upper)
+    result = data_source.get_arrest_ranges(lower, upper)
 
     return render_template('sellArrestSpec.html', lower=lower, upper=upper, result=result)
 
