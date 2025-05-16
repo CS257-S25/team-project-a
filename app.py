@@ -75,6 +75,7 @@ def get_meeting_count():
 def sell_arrest_spec(lower, upper):
     """Calls the get_arrest_ranges function from the core.py file
     to display some dummy information"""
+    data_source = DataSource()
     lower = int(request.args.get('lower'))
     upper = int(request.args.get('upper'))
     result = .get_arrest_ranges(lower, upper)
