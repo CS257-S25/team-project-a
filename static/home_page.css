@@ -82,7 +82,9 @@ nav li:hover a {
     color: white;
 }
 
-div search {
+div.search {
+    padding-top: .5%;
+    align-items: center;
     margin-left: auto;
 }
 
