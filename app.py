@@ -72,12 +72,12 @@ def get_meeting_count():
     return "The average number of self-help meetings attended is "+str(count)
 
 @app.route('/sellArrest/<lower>/<upper>', strict_slashes=False)
-def drug_arrests(lower, upper):
+def sell_arrest_spec(lower, upper):
     """Calls the get_arrest_ranges function from the core.py file
     to display some dummy information"""
     lower = int(request.args.get('lower'))
     upper = int(request.args.get('upper'))
-    result = core.get_arrest_ranges(lower, upper)
+    result = .get_arrest_ranges(lower, upper)
 
     return render_template('sellArrestSpec.html', lower=lower, upper=upper, result=result)
 
