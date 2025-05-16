@@ -48,7 +48,7 @@ def display_page_based_on_search():
         if response == "arrests":
             pages = ["home", "meetings", "data overview", "arrests"]
             data_source = DataSource()
-            return render_template('sellArrest.html', pages=pages)
+            return render_template('sell_arrest.html', pages=pages)
         if response == "data_overview":
             pages = ["home", "meetings", "data overview", "arrests"]
             data_source = DataSource()
@@ -76,7 +76,7 @@ def sell_arrest():
     which will take in user input"""
     pages = ["home", "meetings", "data overview", "arrests"]
     data_source = DataSource()
-    return render_template('sellArrest.html', pages=pages)
+    return render_template('sell_arrest.html', pages=pages)
 
 @app.route('/dataOverview', strict_slashes=False)
 def get_data_overview():
@@ -112,7 +112,7 @@ def sell_arrest_spec(lower, upper):
     upper = int(request.args.get('upper'))
     result = data_source.get_arrest_ranges(lower, upper)
 
-    return render_template('sellArrestSpec.html', lower=lower, upper=upper,
+    return render_template('sell_arrest_spec.html', lower=lower, upper=upper,
                             result=result, pages=pages)
 
 if __name__ == '__main__':
