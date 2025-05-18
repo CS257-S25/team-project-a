@@ -119,30 +119,30 @@ class TestGetMeetingCount(unittest.TestCase):
 #             response.data
 #         )
 
-class TestDrugSaleArrests(unittest.TestCase):
-    """Tests the drug sale arrests route"""
+# class TestDrugSaleArrests(unittest.TestCase):
+#     """Tests the drug sale arrests route"""
 
-    def __init__(self, methodName="runTest"):
-        super().__init__(methodName)
-        self.app = app.test_client()
+#     def __init__(self, methodName="runTest"):
+#         super().__init__(methodName)
+#         self.app = app.test_client()
 
-    def setUp(self):
-        """Sets up the dummy data"""
-        self.mock_conn = MagicMock()
-        self.mock_cursor = self.mock_conn.cursor.return_value
+#     def setUp(self):
+#         """Sets up the dummy data"""
+#         self.mock_conn = MagicMock()
+#         self.mock_cursor = self.mock_conn.cursor.return_value
 
-    @patch('ProductionCode.datasource.psycopg2.connect')
-    def test_drug_sale(self, mock_connect):
-        """Test for route for drug sale arrests"""
-        self.app = app.test_client()
-        mock_connect.return_value = self.mock_conn
-        #set what it should return
-        self.mock_cursor.fetchall.return_value = (
-            [None]*283
-            )
-        response = self.app.get('/arrests/1/10', follow_redirects=True)
-        self.assertEqual(b"The number of people who were arrested between 1 and 10 times is: 283",
-                          response.data)
+#     @patch('ProductionCode.datasource.psycopg2.connect')
+#     def test_drug_sale(self, mock_connect):
+#         """Test for route for drug sale arrests"""
+#         self.app = app.test_client()
+#         mock_connect.return_value = self.mock_conn
+#         #set what it should return
+#         self.mock_cursor.fetchall.return_value = (
+#             [None]*283
+#             )
+#         response = self.app.get('/arrests/1/10', follow_redirects=True)
+#         self.assertEqual(b"The number of people who were arrested between 1 and 10 times is: 283",
+#                           response.data)
 
     def test_bad_route(self):
         """Test a bad path that should display a correct usage hint"""

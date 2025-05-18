@@ -1,7 +1,7 @@
 """Code for the Command Line Interface"""
 
 import sys
-from ProductionCode import data_processor
+from ProductionCode.datasource import DataSource
 
 
 def main():
@@ -24,23 +24,25 @@ def process_input():
 
 def input_meeting_helper(arg):
     """Serves as a helper for calling the production code method meeting_frequency/count()"""
+    data_source = DataSource()
     args = arg.split("-")[2:]
     if len(args) == 2:
         if args[1] == "frequency" or args[1] == "freq":
-            print(str(data_processor.meeting_frequency()) + "%")
+            print(str(data_source.get_freq_meetings_attended()) + "%")
         if args[1] == "count":
-            print(str(data_processor.meeting_count()) + " meetings attended")
+            print(str(data_source.get_ave_meetings_attended()) + " meetings attended")
     else:
         print_usage_statement()
 
 
 def input_serrest_helper():
     """Serves as a helper for calling the production code method drug_sale_arrests()"""
+    data_source = DataSource()
     if get_sys_argv_length() == 4:
         try:
             print(
                 str(
-                    data_processor.drug_sale_arrests(
+                    data_source.get_arrest_ranges(
                         int(sys.argv[2]), int(sys.argv[3])
                     )
                 )

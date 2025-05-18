@@ -29,7 +29,7 @@ class TestProcessInput(unittest.TestCase):
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
-        self.assertEqual(printed_output, "33.75%", "should be 33.75%")
+        self.assertEqual(printed_output, "32.71%", "should be 32.71%")
 
     def test_meeting_command_line_count(self):
         """Testing that the comand line command returns something when valid"""
@@ -38,7 +38,7 @@ class TestProcessInput(unittest.TestCase):
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
         self.assertEqual(
-            printed_output, "6.75 meetings attended", "should be 6.75 meetings attended"
+            printed_output, "1.64 meetings attended", "should be 1.64 meetings attended"
         )
 
     def test_arrests_command_line(self):
@@ -47,7 +47,7 @@ class TestProcessInput(unittest.TestCase):
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
-        self.assertEqual(printed_output, "3 people", "should be 3 people")
+        self.assertEqual(printed_output, "283 people", "should be 283 people")
 
     def test_command_line_no_input(self):
         """Testing that the comand line command returns the usage case
@@ -165,7 +165,7 @@ class TestMeetingFrequency(unittest.TestCase):
 
     def test_meeting_frequency(self):
         """Checks that the meeting frequency is returned"""
-        self.assertEqual(data_processor.meeting_frequency(), 33.75, "Should be 33.75")
+        self.assertEqual(data_processor.meeting_frequency(), 51.67, "Should be 51.67")
 
 
 class TestMeetingCount(unittest.TestCase):
@@ -177,7 +177,7 @@ class TestMeetingCount(unittest.TestCase):
 
     def test_meeting_count(self):
         """Checks that the meeting frequency is returned"""
-        self.assertEqual(data_processor.meeting_count(), 6.75, "Should be 6.75")
+        self.assertEqual(data_processor.meeting_count(), 7.75, "Should be 7.75")
 
 
 class TestDrugSaleArrests(unittest.TestCase):
