@@ -75,7 +75,6 @@ def sell_arrest():
     """Determines the route to the drug arrests page
     which will take in user input"""
     pages = ["home", "meetings", "data overview", "arrests"]
-    data_source = DataSource()
     return render_template('sell_arrest.html', pages=pages)
 
 @app.route('/dataOverview', strict_slashes=False)
@@ -83,7 +82,6 @@ def get_data_overview():
     """Makes a page that runs when a user request is given for the graphical data
     returns an HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
-    data_source = DataSource()
     return render_template('data_overview_page.html', pages=pages)
 
 @app.route('/meeting/frequency', strict_slashes=False)
