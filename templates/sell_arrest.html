@@ -10,6 +10,17 @@
       
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
             rel="stylesheet" type="text/css" />
+
+         <style>
+            input[type=text] {
+               background-color: #8fb8eb;
+               color: white;
+               border: 2px solid gray
+            }
+            input[type=text]:focus {
+               background-color: solid gray
+            }
+         </style>
      </head>
      <body>
         <h1> Drug Abuse Treatment Database </h1>
@@ -55,9 +66,9 @@
 
 
         <form action="/sellArrest/lower/upper" method="GET">
-            <label for="lower">Lower bound:</label><br>
+            <label for="lower">Lower bound (integer):</label><br>
             <input type="text" id="lower" name="lower"><br>
-            <label for="upper">Upper bound:</label><br>
+            <label for="upper">Upper bound (integer):</label><br>
             <input type="text" id="upper" name="upper">
             <input type="submit" value="Submit">
         </form>
