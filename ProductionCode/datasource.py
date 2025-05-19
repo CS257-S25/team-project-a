@@ -31,7 +31,7 @@ class DataSource:
         cursor = self.connection.cursor()
 
         #Execute a query
-        cursor.execute("SELECT avg(cast(NSHLPM as int)) FROM drug_data")
+        cursor.execute("SELECT avg(cast(MeetingAttendanceCount as int)) FROM drug_data")
 
         #Retrieve query results
         records = cursor.fetchall()
@@ -44,11 +44,11 @@ class DataSource:
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
 
-        cursor.execute("SELECT avg(cast(NSHLPM as int)) FROM drug_data")
+        cursor.execute("SELECT avg(cast(MeetingAttendanceCount as int)) FROM drug_data")
 
         records1 = cursor.fetchall()
 
-        cursor.execute("SELECT max(cast(NSHLPM as int)) FROM drug_data")
+        cursor.execute("SELECT max(cast(MeetingAttendanceCount as int)) FROM drug_data")
 
         records2 = cursor.fetchall()
 
@@ -61,10 +61,27 @@ class DataSource:
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
 
-        cursor.execute("SELECT * FROM drug_data WHERE ARSTDRG>=%s" \
-        " AND ARSTDRG<=%s ORDER BY ARSTDRG DESC", (low, high,))
+        cursor.execute("SELECT * FROM drug_data WHERE DrugRelatedArrests>=%s" \
+        " AND DrugRelatedArrests<=%s ORDER BY DrugRelatedArrests DESC", (low, high,))
 
         records = cursor.fetchall()
 
 
         return len(records)
+
+    def get_graph_data(self):
+        """Gets the data needed for a graph relating drug affect 
+        on emotional state and self help meetings attended"""
+
+        #Open a cursor to perform database operations
+        cursor = self.connection.cursor()
+
+        cursor.execute("SELECT cast(MeetingAttendanceCount as int) FROM drug_data")
+
+        records1 = cursor.fetchall()
+
+        cursor.execute("SELECT DrugUseEmotionalHealth FROM drug_data")
+
+        records2 = cursor.fetchall()
+
+        return [records1[0], records2[0]]
