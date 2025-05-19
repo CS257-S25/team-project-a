@@ -1,6 +1,7 @@
 title{
     color: #3791ff;
     font-family: Verdana, Geneva, sans-serif;
+    box-sizing: border-box;
 }
 
 h2 {
@@ -80,7 +81,7 @@ nav div ul li {
 
 nav li a {
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     text-decoration: none;
 }
