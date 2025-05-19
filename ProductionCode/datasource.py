@@ -83,5 +83,11 @@ class DataSource:
         cursor.execute("SELECT DrugUseEmotionalHealth FROM drug_data")
 
         records2 = cursor.fetchall()
+        return process_graph_data(records1, records2)
 
-        return [records1[0], records2[0]]
+def process_graph_data(list1, list2):
+    """Gets the data into ann x, y list from the sql returned info"""
+    result = []
+    for i, item in enumerate(list1):
+        result.append([item[0], list2[i][0]])
+    return result
