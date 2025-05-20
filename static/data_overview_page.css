@@ -97,7 +97,7 @@ div.search {
 div.margin {
     display: flex;
     color: white;
-    background-color: white;
+    background-color: #f0f8ff;
     height: 1.5em;
     width: 100%;
 }

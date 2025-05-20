@@ -140,7 +140,7 @@ class TestGetMeetingCount(unittest.TestCase):
 #         self.mock_cursor.fetchall.return_value = (
 #             [None]*283
 #             )
-#         response = self.app.get('/arrests/1/10', follow_redirects=True)
+#         response = self.app.get('/sellArrests/1/10', follow_redirects=True)
 #         self.assertEqual(b"The number of people who were arrested between 1 and 10 times is: 283",
 #                           response.data)
 
