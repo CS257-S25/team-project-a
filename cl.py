@@ -40,11 +40,13 @@ def input_serrest_helper():
     """Serves as a helper for calling the production code method drug_sale_arrests()"""
     if get_sys_argv_length() == 4:
         try:
+            low = int(sys.argv[2])
+            high = int(sys.argv[3])
             data_source = DataSource()
             print(
                 str(
                     data_source.get_arrest_ranges(
-                        int(sys.argv[2]), int(sys.argv[3])
+                        low, high
                     )
                 )
                 + " people"
