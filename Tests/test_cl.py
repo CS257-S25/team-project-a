@@ -4,7 +4,6 @@ import unittest
 import sys
 from io import StringIO
 from unittest.mock import MagicMock, patch
-from ProductionCode.datasource import DataSource
 import cl
 
 dummyData = [
