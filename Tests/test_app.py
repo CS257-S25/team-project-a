@@ -56,7 +56,7 @@ class TestGetMeetingFrequency(unittest.TestCase):
             b"404 Not Found: The requested URL was not found on the server. "
             + b"If you entered the URL manually please check your spelling and try again. "
             + b"Sorry, wrong format, do this instead /meeting/frequency or "
-            + b"/meeting/count or arrests/low/high",
+            + b"/meeting/count or arrests/low/high eg. arrests/1/3",
             response.data,
         )
 
@@ -95,7 +95,7 @@ class TestGetMeetingCount(unittest.TestCase):
             b"404 Not Found: The requested URL was not found on the server. "
             + b"If you entered the URL manually please check your spelling and try again. "
             + b"Sorry, wrong format, do this instead /meeting/frequency or "
-            + b"/meeting/count or arrests/low/high",
+            + b"/meeting/count or arrests/low/high eg. arrests/1/3",
             response.data,
         )
 
@@ -151,7 +151,7 @@ class TestGetMeetingCount(unittest.TestCase):
     #     self.assertEqual(
     #         b"404 Not Found: The requested URL was not found on the server. " +
     #         b"If you entered the URL manually please check your spelling and try again. " +
-    #         b"Sorry, wrong format, do this instead /meeting/frequency or " +
-    #         b"/meeting/count or arrests/low/high",
+    #         + b"Sorry, wrong format, do this instead /meeting/frequency or "
+            # + b"/meeting/count or arrests/low/high eg. arrests/1/3",
     #         response.data,
     #     )

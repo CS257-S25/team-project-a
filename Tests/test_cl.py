@@ -57,7 +57,7 @@ class TestProcessInput(unittest.TestCase):
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_arrests_command_line(self, mock_connect):
         """Testing that the comand line command returns something when valid"""
-        sys.argv = ["basic_cl.py", "--sell-arrests", 1, 10]
+        sys.argv = ["basic_cl.py", "--sellArrests", 1, 10]
         mock_connect.return_value = self.mock_conn
 		#set what it should return
         self.mock_cursor.fetchall.return_value = (
