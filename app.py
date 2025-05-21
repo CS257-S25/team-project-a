@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    """Creates a homepage that has user instructions returns a string"""
+    """Creates a homepage that has user instructions, returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     return render_template('home_page.html', pages=pages)
     # return 'Hello! Welcome to our website with the amazingly' \
@@ -35,7 +35,8 @@ def python_bug(e):
 
 @app.route("/search", methods=["POST", "GET"], strict_slashes=False)
 def display_page_based_on_search():
-    """Dynamicaly renders a page based on passed in search parameters"""
+    """Dynamicaly renders a page based on passed in search parameters,
+    returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     if request.method == 'POST':
         response = request.form['search'].replace(" ", "_")
@@ -73,7 +74,7 @@ def get_meeting():
 @app.route('/sellArrest', strict_slashes=False)
 def sell_arrest():
     """Determines the route to the drug arrests page
-    which will take in user input"""
+    which will take in user input, returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     return render_template('sell_arrest.html', pages=pages)
 
@@ -104,8 +105,7 @@ def get_meeting_count():
 
 @app.route('/sellArrest/<lower>/<upper>', strict_slashes=False, methods=["POST", "GET"])
 def sell_arrest_spec(lower, upper):
-    """Calls the get_arrest_ranges function from the core.py file
-    to display some dummy information"""
+    """Makes the data page for the drug sale info, returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     data_source = DataSource()
     lower = int(request.args.get('lower'))

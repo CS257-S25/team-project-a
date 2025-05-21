@@ -16,7 +16,7 @@ def process_input():
         print_usage_statement()
     elif len(sys.argv) > 1 and sys.argv[1].startswith("--meeting"):
         input_meeting_helper(sys.argv[1])
-    elif len(sys.argv) > 1 and sys.argv[1] == "--sell-arrests":
+    elif len(sys.argv) > 1 and sys.argv[1] == "--sellArrests":
         input_serrest_helper()
     else:
         print_usage_statement()
