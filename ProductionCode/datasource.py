@@ -25,7 +25,8 @@ class DataSource:
         return connection
 
     def get_ave_meetings_attended(self):
-        """Gets the average self help meetings attended from the dataset"""
+        """Gets the average self help meetings attended from the dataset
+        returns a floating point number rounded to two places"""
 
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
@@ -39,7 +40,8 @@ class DataSource:
         return round(records[0][0], 2)
 
     def get_freq_meetings_attended(self):
-        """Gets the frequency of self help meetings attended from the dataset"""
+        """Gets the frequency of self help meetings attended from the dataset
+        returns a floating point number rounded to 2 places"""
 
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
@@ -56,7 +58,8 @@ class DataSource:
 
     def get_arrest_ranges(self, low, high):
         """Gets the number of people with in the range 
-        of drug sale arrests proivided from the dataset"""
+        of drug sale arrests proivided from the dataset
+        takes in two integers for the range of arrests, returns an integer"""
 
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
@@ -71,7 +74,8 @@ class DataSource:
 
     def get_graph_data(self):
         """Gets the data needed for a graph relating drug affect 
-        on emotional state and self help meetings attended"""
+        on emotional state and self help meetings attended,
+        returns a array of points"""
 
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
@@ -86,7 +90,8 @@ class DataSource:
         return process_graph_data(records1, records2)
 
 def process_graph_data(list1, list2):
-    """Gets the data into ann x, y list from the sql returned info"""
+    """Gets the data into ann x, y list from the sql returned info,
+    returns an array of points from the two arrays"""
     result = []
     for i, item in enumerate(list1):
         result.append([item[0], list2[i][0]])
