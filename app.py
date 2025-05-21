@@ -72,7 +72,7 @@ def get_meeting():
 
 @app.route('/sellArrest', strict_slashes=False)
 def sell_arrest():
-    """Determines the route to the drug arrests page
+    """Makes a page for the drug arrests page
     which will take in user input"""
     pages = ["home", "meetings", "data overview", "arrests"]
     return render_template('sell_arrest.html', pages=pages)
@@ -103,16 +103,16 @@ def get_meeting_count():
     return "The average number of self-help meetings attended is "+str(count)
 
 @app.route('/sellArrest/<lower>/<upper>', strict_slashes=False, methods=["POST", "GET"])
-def sell_arrest_spec(lower, upper):
-    """Calls the get_arrest_ranges function from the core.py file
-    to display some dummy information"""
+def sell_arrest_result(lower, upper):
+    """Redirects from the sell arrest page to a page
+    that displays a result based on the lower and upper bounds"""
     pages = ["home", "meetings", "data overview", "arrests"]
     data_source = DataSource()
     lower = int(request.args.get('lower'))
     upper = int(request.args.get('upper'))
     result = data_source.get_arrest_ranges(lower, upper)
 
-    return render_template('sell_arrest_spec.html', lower=lower, upper=upper,
+    return render_template('sell_arrest_result.html', lower=lower, upper=upper,
                             result=result, pages=pages)
 
 if __name__ == '__main__':
