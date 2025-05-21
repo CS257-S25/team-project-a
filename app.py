@@ -25,7 +25,7 @@ def page_not_found(e):
     """Makes a page for the user when an incorrect url is given 
     takes in an error e and displays it, returns a string"""
     return str(e)+" Sorry, wrong format, do this instead /meeting/frequency or " \
-        "/meeting/count or arrests/low/high"
+        "/meeting/count or arrests/low/high eg. arrests/1/3"
 
 @app.errorhandler(500)
 def python_bug(e):
@@ -105,7 +105,9 @@ def get_meeting_count():
 
 @app.route('/sellArrest/<lower>/<upper>', strict_slashes=False, methods=["POST", "GET"])
 def sell_arrest_spec(lower, upper):
-    """Makes the data page for the drug sale info, returns a HTML page"""
+    """Makes the data page for the drug sale info
+    takes in two integers a low range and a high range,
+    returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     data_source = DataSource()
     lower = int(request.args.get('lower'))
