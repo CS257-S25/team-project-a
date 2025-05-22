@@ -1,7 +1,7 @@
 <html>
      <head>
          
-         <link rel="stylesheet" href="{{ url_for('static', filename='sell_arrest.css') }}">
+         <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
          </script>  
       
@@ -11,36 +11,11 @@
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
             rel="stylesheet" type="text/css" />
          
-         <title>Arrest Info</title>
+         <title class="sell_arrest">Arrest Info</title>
 
-         <style>
-            body {
-               background-color: #f0f8ff;
-            }
-            h2 {
-               color: #2980b9;
-            }
-            input[id="lower"] {
-               background-color: #a4cbfb;
-               color: black;
-               border: 2px solid gray
-            }
-            input[id="lower"]:focus {
-               background-color: solid gray
-            }
-
-            input[id="upper"] {
-               background-color: #a4cbfb;
-               color: black;
-               border: 2px solid gray
-            }
-            input[id="upper"]:focus {
-               background-color: solid gray
-            }
-         </style>
      </head>
      <body>
-        <h1> Drug Abuse Treatment Database </h1>
+        <h1 class="sell_arrest"> Drug Abuse Treatment Database </h1>
         <nav>
         <div>
             <a class="logo" href="/">
@@ -48,9 +23,9 @@
             </a>
             <div class="pages">
             <ul>
-            <li><a href="meeting">Meeting info</a></li>
+            <li><a href="/meeting">Meeting info</a></li>
             <li><a href="/">Arrests</a></li>
-            <li><a href="dataOverview">Data Overview</a></li>
+            <li><a href="/dataOverview">Data Overview</a></li>
             </ul>
             </div>
         </div>
@@ -77,7 +52,7 @@
         </div>
 
 
-        <h2>Arrest Info</h2>
+        <h2 id="exclusive">Arrest Info</h2>
 
         <p>
             Please enter your lower and upper bounds as directed.

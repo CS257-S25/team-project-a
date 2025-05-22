@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Arrest Info</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='sell_arrest_spec.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
          </script>  
       
@@ -11,14 +11,6 @@
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
             rel="stylesheet" type="text/css" />
 
-         <style>
-            body {
-               background-color: #f0f8ff;
-            }
-            h2 {
-               color: #2980b9;
-            }
-         </style>
     </head>
 
     <body>
@@ -58,7 +50,7 @@
         <div class = "margin">
         </div>
 
-        <h2> Results </h2>
+        <h2 id="exclusive"> Results </h2>
         The number of people who were arrested between {{ lower }} and {{ upper }}<br>
         times is: {{result}}
 

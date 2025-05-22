@@ -118,21 +118,20 @@ def get_meeting_count():
     count = data_source.get_ave_meetings_attended()
     return "The average number of self-help meetings attended is " + str(count)
 
-
-@app.route("/sellArrest/<lower>/<upper>", strict_slashes=False, methods=["POST", "GET"])
-def sell_arrest_spec(lower, upper):
-    """Makes the data page for the drug sale info
-    takes in two integers a low range and a high range,
-    returns a HTML page"""
+@app.route('/sellArrest/<lower>/<upper>', strict_slashes=False, methods=["POST", "GET"])
+def sell_arrest_result(lower, upper):
+    """Redirects from the sell arrest page to a page
+    that displays a result based on the lower and upper bounds
+    lower and upper bounds are integers
+    returns an HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     data_source = DataSource()
     lower = int(request.args.get("lower"))
     upper = int(request.args.get("upper"))
     result = data_source.get_arrest_ranges(lower, upper)
 
-    return render_template(
-        "sell_arrest_spec.html", lower=lower, upper=upper, result=result, pages=pages
-    )
+    return render_template('sell_arrest_result.html', lower=lower, upper=upper,
+                            result=result, pages=pages)
 
 
 if __name__ == "__main__":

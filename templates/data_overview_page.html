@@ -1,7 +1,7 @@
 <html>
      <head>
          <title>Data Overview</title>
-         <link rel="stylesheet" href="{{ url_for('static', filename='data_overview_page.css') }}">
+         <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
          </script>  
       
@@ -13,14 +13,6 @@
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
             rel="stylesheet" type="text/css" />
 
-         <style>
-            body {
-               background-color: #f0f8ff;
-            }
-            h2 {
-               color: #2980b9;
-            }
-         </style>
      </head>
      <body>
         <h1> Drug Abuse Treatment Database </h1>
@@ -58,7 +50,7 @@
         </nav>
         <div class = "margin">
         </div>
-        <h2>Data Overview</h2>
+        <h2 id="exclusive">Data Overview</h2>
         <svg id="plot"></svg>
         <script src="{{ url_for('static', filename='drug_usage_graph.js') }}" charset="utf-8" data="{{data}}"></script>
      </body>
