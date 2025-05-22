@@ -57,7 +57,7 @@ class TestProcessInput(unittest.TestCase):
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_arrests_command_line(self, mock_connect):
         """Testing that the comand line command returns something when valid"""
-        sys.argv = ["basic_cl.py", "--sell-arrests", 1, 10]
+        sys.argv = ["basic_cl.py", "--sellArrests", 1, 10]
         mock_connect.return_value = self.mock_conn
 		#set what it should return
         self.mock_cursor.fetchall.return_value = (
@@ -90,7 +90,7 @@ class TestProcessInput(unittest.TestCase):
     def test_arrests_command_line_wrong_input(self):
         """Testing that the comand line command returns the usage case
         when invalid input is passed in"""
-        sys.argv = ["basic_cl.py", "--sell-arrests"]
+        sys.argv = ["basic_cl.py", "--sellArrests"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()
@@ -109,7 +109,7 @@ class TestProcessInput(unittest.TestCase):
     def test_arrests_command_line_bad_input(self):
         """Testing that the comand line command returns the usage case
         when invalid input is passed in"""
-        sys.argv = ["basic_cl.py", "--sell-arrests", "sbjs", "202"]
+        sys.argv = ["basic_cl.py", "--sellArrests", "sbjs", "202"]
         sys.stdout = StringIO()
         cl.main()
         printed_output = sys.stdout.getvalue().strip()

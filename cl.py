@@ -16,8 +16,8 @@ def process_input():
         print_usage_statement()
     elif len(sys.argv) > 1 and sys.argv[1].startswith("--meeting"):
         input_meeting_helper(sys.argv[1])
-    elif len(sys.argv) > 1 and sys.argv[1] == "--sell-arrests":
-        input_serrest_helper()
+    elif len(sys.argv) > 1 and sys.argv[1] == "--sellArrests":
+        input_sell_arrest_helper()
     else:
         print_usage_statement()
 
@@ -36,7 +36,7 @@ def input_meeting_helper(arg):
         print_usage_statement()
 
 
-def input_serrest_helper():
+def input_sell_arrest_helper():
     """Serves as a helper for calling the production code method drug_sale_arrests()"""
     if get_sys_argv_length() == 4:
         try:

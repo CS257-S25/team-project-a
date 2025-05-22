@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    """Creates a homepage that has user instructions returns a string"""
+    """Creates a homepage that has user instructions, returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     return render_template('home_page.html', pages=pages)
     # return 'Hello! Welcome to our website with the amazingly' \
@@ -25,7 +25,7 @@ def page_not_found(e):
     """Makes a page for the user when an incorrect url is given 
     takes in an error e and displays it, returns a string"""
     return str(e)+" Sorry, wrong format, do this instead /meeting/frequency or " \
-        "/meeting/count or arrests/low/high"
+        "/meeting/count or arrests/low/high eg. arrests/1/3"
 
 @app.errorhandler(500)
 def python_bug(e):
@@ -35,7 +35,8 @@ def python_bug(e):
 
 @app.route("/search", methods=["POST", "GET"], strict_slashes=False)
 def display_page_based_on_search():
-    """Dynamicaly renders a page based on passed in search parameters"""
+    """Dynamicaly renders a page based on passed in search parameters,
+    returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     if request.method == 'POST':
         response = request.form['search'].replace(" ", "_")
@@ -72,8 +73,8 @@ def get_meeting():
 
 @app.route('/sellArrest', strict_slashes=False)
 def sell_arrest():
-    """Makes a page for the drug arrests page
-    which will take in user input"""
+    """Determines the route to the drug arrests page
+    which will take in user input, returns a HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     return render_template('sell_arrest.html', pages=pages)
 
