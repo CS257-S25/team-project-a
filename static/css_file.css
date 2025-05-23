@@ -136,9 +136,43 @@ div.margin {
     width: 100%;
 }
 
+div.vertical_margin {
+    display: flex;
+    gap: 10px;
+}
+
+div.info_box {
+    flex: 1;              /* take up equal share of the row */
+    height: 700px;
+    overflow: auto;
+    background-color: 789188;
+    color: white;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
+div.usage_box {
+    flex: 1;
+    height: 550px;
+    overflow: auto;
+    background-color: 7D9599;
+    color: white;
+    font-family: sans-serif;
+    padding: 10px;
+}
+
 div.info {
     display: block;
     color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+div.meeting_info {
+    display: block;
+    color: white;
+    background-color: #7D9599;
     text-decoration: none;
     text-align: center;
     padding: 14px 16px;
@@ -150,6 +184,16 @@ div.info ul {
 }
 
 div.info li {
+    float: left;
+    padding: 14px 16px;
+}
+
+div.meeting_info ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+div.meeting_info li {
     float: left;
     padding: 14px 16px;
 }
