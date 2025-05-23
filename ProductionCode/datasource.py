@@ -47,13 +47,11 @@ class DataSource:
         cursor = self.connection.cursor()
 
         cursor.execute("SELECT avg(cast(MeetingAttendanceCount as int)) FROM drug_data")
-
         records1 = cursor.fetchall()
 
         cursor.execute("SELECT max(cast(MeetingAttendanceCount as int)) FROM drug_data")
-
         records2 = cursor.fetchall()
-
+        
         return round((records1[0][0]/records2[0][0])*100, 2)
 
     def get_arrest_ranges(self, low, high):
@@ -63,13 +61,54 @@ class DataSource:
 
         #Open a cursor to perform database operations
         cursor = self.connection.cursor()
-
         cursor.execute("SELECT * FROM drug_data WHERE DrugRelatedArrests>=%s" \
         " AND DrugRelatedArrests<=%s ORDER BY DrugRelatedArrests DESC", (low, high,))
 
         records = cursor.fetchall()
+        return len(records)
 
+    def get_alcohol_phyisical_health(self):
+        """Gets the frequency at which patients' physical
+        health is affected by alcohol"""
 
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM drug_data WHERE AlcoholUsePhysicalHealth>=%s" \
+        " AND AlcoholUsePhysicalHealth<=%s ORDER BY AlcoholUsePhysicalHealth DESC")
+
+        records = cursor.fetchall()
+        return len(records)
+
+    def get_alcohol_mental_health(self):
+        """Gets the frequency at which patients' mental
+        health is affected by alcohol"""
+
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM drug_data WHERE AlcoholUseMentalHealth>=%s" \
+        " AND AlcoholUseMentalHealth<=%s ORDER BY AlcoholUseMentalHealth DESC")
+
+        records = cursor.fetchall()
+        return len(records)
+
+    def get_drug_phyisical_health(self):
+        """Gets the frequency at which patients' physical
+        health is affected by drugs"""
+
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM drug_data WHERE DrugUsePhysicalHealth>=%s" \
+        " AND DrugUsePhysicalHealth<=%s ORDER BY DrugUsePhysicalHealth DESC")
+
+        records = cursor.fetchall()
+        return len(records)
+
+    def get_drug_mental_health(self):
+        """Gets the frequency at which patients' mental
+        health is affected by drugs"""
+
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM drug_data WHERE DrugUseMentalHealth>=%s" \
+        " AND DrugUseMentalHealth<=%s ORDER BY DrugUseMentalHealth DESC")
+
+        records = cursor.fetchall()
         return len(records)
 
     def get_graph_data(self):
