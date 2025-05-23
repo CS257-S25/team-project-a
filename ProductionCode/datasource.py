@@ -94,5 +94,6 @@ def process_graph_data(list1, list2):
     returns an array of points from the two arrays"""
     result = []
     for i, item in enumerate(list1):
-        result.append([item[0], list2[i][0]])
+        if item[0] != -9 and item[0] is not None and list2[i][0] is not None:
+            result.append([item[0], list2[i][0]])
     return result

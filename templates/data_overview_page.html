@@ -52,6 +52,10 @@
         </div>
         <h2 id="exclusive">Data Overview</h2>
         <svg id="plot"></svg>
-        <script src="{{ url_for('static', filename='drug_usage_graph.js') }}" charset="utf-8" data="{{data}}"></script>
+        <script src="{{ url_for('static', filename='drug_usage_graph.js') }}" charset="utf-8"></script>
+        <script>
+            var data = '{{ data }}'
+            make_graph(data)
+         </script>
      </body>
  </html>
