@@ -51,7 +51,7 @@ class DataSource:
 
         cursor.execute("SELECT max(cast(MeetingAttendanceCount as int)) FROM drug_data")
         records2 = cursor.fetchall()
-        
+
         return round((records1[0][0]/records2[0][0])*100, 2)
 
     def get_arrest_ranges(self, low, high):
