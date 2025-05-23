@@ -27,7 +27,7 @@ def page_not_found(e):
     """Makes a page for the user when an incorrect url is given
     takes in an error e, returns a string"""
     pages = ["home", "meetings", "data overview", "arrests"]
-    return render_template("404_page.html", pages=pages)
+    return render_template("404_page.html", pages=pages, error=e)
 
 
 @app.errorhandler(500)
