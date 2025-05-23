@@ -49,18 +49,6 @@ class TestGetMeetingCount(unittest.TestCase):
             b"The average number of self-help meetings attended is 1.64", response.data
         )
 
-    def test_bad_route(self):
-        """Test a bad path that should display a correct usage hint"""
-        self.app = app.test_client()
-        response = self.app.get("/0", follow_redirects=True)
-        self.assertEqual(
-            b"404 Not Found: The requested URL was not found on the server. "
-            + b"If you entered the URL manually please check your spelling and try again. "
-            + b"Sorry, wrong format, do this instead /meeting/frequency or "
-            + b"/meeting/count or arrests/low/high eg. sellArrest/1/3",
-            response.data,
-        )
-
 class TestGetMeetingPage(unittest.TestCase):
     """Tests the HTML meeting page"""
 
@@ -123,17 +111,26 @@ class TestDrugSaleArrests(unittest.TestCase):
                       b'\n        times is: 283',
                           response.data)
 
-def test_bad_route(self):
-    """Test a bad path that should display a correct usage hint"""
-    self.app = app.test_client()
-    response = self.app.get("/0", follow_redirects=True)
-    self.assertEqual(
-        b"404 Not Found: The requested URL was not found on the server. " +
-        b"If you entered the URL manually please check your spelling and try again. " +
-        b"Sorry, wrong format, do this instead /meeting/frequency or " +
-        b"/meeting/count or arrests/low/high eg. sellArrest/1/3",
-        response.data,
-    )
+class TestDataOverview(unittest.TestCase):
+    """Tests the HTML data overview page"""
+
+    def __init__(self, methodName="runTest"):
+        super().__init__(methodName)
+        self.app = app.test_client()
+
+    def setUp(self):
+        """Sets up the mock database"""
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
+
+    def test_bad_route(self):
+        """Tests a correct path that should display the methods result"""
+        self.app = app.test_client()
+        response = self.app.get("/not_real", follow_redirects=True)
+        self.assertIn(
+            b'<h2>Error 404:</h2>',
+            response.data,
+        )
 
 class TestDataOverview(unittest.TestCase):
     """Tests the HTML data overview page"""
