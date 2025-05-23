@@ -49,6 +49,23 @@ class TestGetArrestRanges(unittest.TestCase):
             283
         )
 
+class TestGetHealthData(unittest.TestCase):
+    """Tests the path based method calls and pages"""
+
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_route(self, mock_connect):
+        """Tests a correct path that should display the methods result"""
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchall.return_value = (
+            [None]*283
+            )
+        data_soucre = DataSource()
+        self.assertEqual(
+            data_soucre.get_alcohol_physical_health
+            283
+        )
+
 class TestGetGraphData(unittest.TestCase):
     """Tests the path based method calls and pages"""
 
