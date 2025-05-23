@@ -132,7 +132,7 @@ class TestDataOverview(unittest.TestCase):
             response.data,
         )
 
-class TestDataOverview(unittest.TestCase):
+class Test404Page(unittest.TestCase):
     """Tests the HTML data overview page"""
 
     def __init__(self, methodName="runTest"):
