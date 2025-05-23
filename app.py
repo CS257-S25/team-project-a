@@ -25,11 +25,9 @@ def homepage():
 @app.errorhandler(404)
 def page_not_found(e):
     """Makes a page for the user when an incorrect url is given
-    takes in an error e and displays it, returns a string"""
-    return (
-        str(e) + " Sorry, wrong format, do this instead /meeting/frequency or "
-        "/meeting/count or arrests/low/high eg. sellArrest/1/3"
-    )
+    takes in an error e, returns a string"""
+    pages = ["home", "meetings", "data overview", "arrests"]
+    return render_template("404_page.html", pages=pages)
 
 
 @app.errorhandler(500)
