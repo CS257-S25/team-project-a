@@ -72,44 +72,40 @@ class DataSource:
         health is affected by alcohol"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM drug_data WHERE AlcoholUsePhysicalHealth>=%s" \
-        " AND AlcoholUsePhysicalHealth<=%s ORDER BY AlcoholUsePhysicalHealth DESC")
+        cursor.execute("SELECT max(cast(AlcoholUsePhysicalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
-        return len(records)
+        return records
 
     def get_alcohol_mental_health(self):
         """Gets the frequency at which patients' mental
         health is affected by alcohol"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM drug_data WHERE AlcoholUseMentalHealth>=%s" \
-        " AND AlcoholUseMentalHealth<=%s ORDER BY AlcoholUseMentalHealth DESC")
+        cursor.execute("SELECT max(cast(AlcoholUseMentalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
-        return len(records)
+        return records
 
-    def get_drug_phyisical_health(self):
+    def get_drug_physical_health(self):
         """Gets the frequency at which patients' physical
         health is affected by drugs"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM drug_data WHERE DrugUsePhysicalHealth>=%s" \
-        " AND DrugUsePhysicalHealth<=%s ORDER BY DrugUsePhysicalHealth DESC")
+        cursor.execute("SELECT max(cast(DrugUsePhysicalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
-        return len(records)
+        return records
 
     def get_drug_mental_health(self):
         """Gets the frequency at which patients' mental
         health is affected by drugs"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM drug_data WHERE DrugUseMentalHealth>=%s" \
-        " AND DrugUseMentalHealth<=%s ORDER BY DrugUseMentalHealth DESC")
+        cursor.execute("SELECT max(cast(DrugUseMentalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
-        return len(records)
+        return records
 
     def get_graph_data(self):
         """Gets the data needed for a graph relating drug affect 

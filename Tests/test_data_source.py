@@ -49,8 +49,13 @@ class TestGetArrestRanges(unittest.TestCase):
             283
         )
 
-class TestGetHealthData(unittest.TestCase):
+class TestGetSubstanceHealth(unittest.TestCase):
     """Tests the path based method calls and pages"""
+
+    def setUp(self):
+        #create a mock connection and cursor
+        self.mock_conn = MagicMock()
+        self.mock_cursor = self.mock_conn.cursor.return_value
 
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_route(self, mock_connect):
@@ -58,12 +63,13 @@ class TestGetHealthData(unittest.TestCase):
         mock_connect.return_value = self.mock_conn
 		#set what it should return
         self.mock_cursor.fetchall.return_value = (
-            [None]*283
+            [5]
             )
         data_soucre = DataSource()
+        test_list = data_soucre.get_alcohol_mental_health()
         self.assertEqual(
-            data_soucre.get_alcohol_physical_health
-            283
+            test_list[0],
+            5
         )
 
 class TestGetGraphData(unittest.TestCase):
