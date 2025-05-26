@@ -1,9 +1,9 @@
 body{
         background-color: #f0f8ff;
+        font-family: Verdana, Geneva, sans-serif;
     }
 
 h1 {
-    font-family: Verdana, Geneva, sans-serif;
     padding-top: 1em;
     padding-bottom: 1em;
     margin-block-start: 0em;
@@ -25,18 +25,15 @@ h2.exclusive {
 
 title {
     color: #3791ff;
-    font-family: Verdana, Geneva, sans-serif;
     box-sizing: border-box;
 }
 
 p {
-    font-family: Verdana, Geneva, sans-serif;
     /* This next line gives us some extra spacing within a paragraph*/
     line-height: 1.4;
 }
 
 li {
-    font-family: Verdana, Geneva, sans-serif;
     line-height: 1.4;
 }
 
@@ -177,6 +174,24 @@ div.meeting_info {
     padding: 14px 16px;
 }
 
+div.drug_info {
+    display: block;
+    color: white;
+    background-color: #7D9599;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+div.alcohol_info {
+    display: block;
+    color: white;
+    background-color: #7D9599;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
 div.info ul {
     list-style-type: none;
     overflow: hidden;
@@ -193,6 +208,26 @@ div.meeting_info ul {
 }
 
 div.meeting_info li {
+    float: left;
+    padding: 14px 16px;
+}
+
+div.drug_info ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+div.drug_info li {
+    float: left;
+    padding: 14px 16px;
+}
+
+div.alcohol_info ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+div.alcohol_info li {
     float: left;
     padding: 14px 16px;
 }

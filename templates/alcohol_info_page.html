@@ -1,8 +1,8 @@
 <html>
-    <head>
-        <title>Arrest Info</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+     <head>
+         <title>Alcohol Effects</title>
+         <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
          </script>  
       
          <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
@@ -11,9 +11,8 @@
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
             rel="stylesheet" type="text/css" />
 
-    </head>
-
-    <body>
+     </head>
+     <body>
         <h1> Drug Abuse Treatment Database </h1>
         <nav>
         <div>
@@ -51,10 +50,12 @@
         </nav>
         <div class = "margin">
         </div>
-
-        <h2 id="exclusive"> Results </h2>
-        The number of people who were arrested between {{ lower }} and {{ upper }}<br>
-        times is: {{result}}
-
-    </body>
-</html>
+        <h2 id="exclusive">Alcohol Effects</h2>
+        <div class="alcohol_info">
+            <ul>
+                <li>Average resopnse to the level of affect of alcohol on a participants physical health: {{physical}}</li>
+                <li>Average resopnse to the level of affect of alcohol on a participants emotional health: {{emotion}}</li>
+            </ul>
+        </div>
+     </body>
+ </html>

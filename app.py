@@ -26,7 +26,7 @@ def homepage():
 def page_not_found(e):
     """Makes a page for the user when an incorrect url is given
     takes in an error e, returns a string"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     return render_template("404_page.html", pages=pages, error=e)
 
 
@@ -41,7 +41,7 @@ def python_bug(e):
 def display_page_based_on_search():
     """Dynamicaly renders a page based on passed in search parameters,
     returns a HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     if request.method == "POST":
         response = request.form["search"].replace(" ", "_")
         if response == "meetings":
@@ -53,15 +53,31 @@ def display_page_based_on_search():
                 pages=pages,
             )
         if response == "arrests":
-            pages = ["home", "meetings", "data overview", "arrests"]
+            pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
             data_source = DataSource()
             return render_template("sell_arrest.html", pages=pages)
         if response == "data_overview":
-            pages = ["home", "meetings", "data overview", "arrests"]
+            pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
             data_source = DataSource()
             return render_template(
                 "data_overview_page.html", pages=pages, data=data_source.get_graph_data()
                 )
+        if response == "drug_info":
+            data_source = DataSource()
+            return render_template(
+                "drug_info_page.html",
+                physical=data_source.get_drug_physical_health(),
+                emotion=data_source.get_drug_mental_health(),
+                pages=pages,
+            )
+        if response == "alcohol_info":
+            data_source = DataSource()
+            return render_template(
+                "alcohol_info_page.html",
+                physical=data_source.get_alcohol_phyisical_health(),
+                emotion=data_source.get_alcohol_mental_health(),
+                pages=pages,
+            )
         if response == "home":
             return render_template("home_page.html", pages=pages)
         return render_template("home_page.html", pages=pages)
@@ -72,7 +88,7 @@ def display_page_based_on_search():
 def get_meeting():
     """Makes a page that runs when a user request is given for meeting data
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     return render_template(
         "self_help_meeting_page.html",
@@ -86,7 +102,7 @@ def get_meeting():
 def sell_arrest():
     """Determines the route to the drug arrests page
     which will take in user input, returns a HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     return render_template("sell_arrest.html", pages=pages)
 
 
@@ -94,12 +110,39 @@ def sell_arrest():
 def get_data_overview():
     """Makes a page that runs when a user request is given for the graphical data
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     return render_template(
         "data_overview_page.html", pages=pages, data=data_source.get_graph_data()
     )
 
+
+@app.route("/drug", strict_slashes=False)
+def get_drug_info():
+    """Makes a page that runs when a user request is given for meeting data
+    returns an HTML page"""
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    data_source = DataSource()
+    return render_template(
+        "drug_info_page.html",
+        physical=data_source.get_drug_physical_health(),
+        emotion=data_source.get_drug_mental_health(),
+        pages=pages,
+    )
+
+
+@app.route("/alcohol", strict_slashes=False)
+def get_alcohol_info():
+    """Makes a page that runs when a user request is given for meeting data
+    returns an HTML page"""
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    data_source = DataSource()
+    return render_template(
+        "alcohol_info_page.html",
+        physical=data_source.get_alcohol_phyisical_health(),
+        emotion=data_source.get_alcohol_mental_health(),
+        pages=pages,
+    )
 
 @app.route("/meeting/frequency", strict_slashes=False)
 def get_meeting_freq():
@@ -124,7 +167,7 @@ def sell_arrest_result(lower, upper):
     that displays a result based on the lower and upper bounds
     lower and upper bounds are integers
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     lower = int(request.args.get("lower"))
     upper = int(request.args.get("upper"))
