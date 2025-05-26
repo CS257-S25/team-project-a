@@ -71,7 +71,7 @@ class TestGetSubstanceHealth(unittest.TestCase):
             test,
             5
         )
-    
+
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_alcohol_emotional_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
@@ -86,7 +86,7 @@ class TestGetSubstanceHealth(unittest.TestCase):
             test,
             5
         )
-    
+
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_drug_physical_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
@@ -101,7 +101,7 @@ class TestGetSubstanceHealth(unittest.TestCase):
             test,
             5
         )
-    
+
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_alcohol_physical_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
