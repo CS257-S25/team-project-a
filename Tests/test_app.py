@@ -18,10 +18,7 @@ class TestMainPage(unittest.TestCase):
         self.app = app.test_client()
         response = self.app.get("/", follow_redirects=True)
         self.assertIn(
-            b'<p>This is a site designed to ' +
-            b'facilitate the analysis of a \n        ' +
-            b'survey on people who have suffered from drug abuse and as a ' +
-            b'result have been arrested.</p>',
+            b'<h2>Info:</h2>',
             response.data,
         )
 
@@ -218,11 +215,8 @@ class TestSearch(unittest.TestCase):
             "search": "home",
         })
         self.assertIn(
-            b'<p>This is a site designed to ' +
-            b'facilitate the analysis of a \n        ' +
-            b'survey on people who have suffered from drug abuse and as a ' +
-            b'result have been arrested.</p>',
-                          response.data)
+            b'<h2>Info:</h2>',
+                response.data)
 
     @patch('ProductionCode.datasource.psycopg2.connect')
     def test_data_overview_page(self, mock_connect):
