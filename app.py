@@ -59,7 +59,9 @@ def display_page_based_on_search():
         if response == "data_overview":
             pages = ["home", "meetings", "data overview", "arrests"]
             data_source = DataSource()
-            return render_template("data_overview_page.html", pages=pages)
+            return render_template(
+                "data_overview_page.html", pages=pages, data=data_source.get_graph_data()
+                )
         if response == "home":
             return render_template("home_page.html", pages=pages)
         return render_template("home_page.html", pages=pages)
