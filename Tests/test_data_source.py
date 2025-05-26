@@ -58,17 +58,62 @@ class TestGetSubstanceHealth(unittest.TestCase):
         self.mock_cursor = self.mock_conn.cursor.return_value
 
     @patch('ProductionCode.datasource.psycopg2.connect')
-    def test_route(self, mock_connect):
+    def test_drug_emotional_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
 		#set what it should return
         self.mock_cursor.fetchall.return_value = (
-            [5]
+            [[5]]
             )
         data_soucre = DataSource()
-        test_list = data_soucre.get_alcohol_mental_health()
+        test = data_soucre.get_drug_mental_health()
         self.assertEqual(
-            test_list[0],
+            test,
+            5
+        )
+    
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_alcohol_emotional_route(self, mock_connect):
+        """Tests a correct path that should display the methods result"""
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchall.return_value = (
+            [[5]]
+            )
+        data_soucre = DataSource()
+        test = data_soucre.get_alcohol_mental_health()
+        self.assertEqual(
+            test,
+            5
+        )
+    
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_drug_physical_route(self, mock_connect):
+        """Tests a correct path that should display the methods result"""
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchall.return_value = (
+            [[5]]
+            )
+        data_soucre = DataSource()
+        test = data_soucre.get_drug_physical_health()
+        self.assertEqual(
+            test,
+            5
+        )
+    
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def test_alcohol_physical_route(self, mock_connect):
+        """Tests a correct path that should display the methods result"""
+        mock_connect.return_value = self.mock_conn
+		#set what it should return
+        self.mock_cursor.fetchall.return_value = (
+            [[5]]
+            )
+        data_soucre = DataSource()
+        test = data_soucre.get_alcohol_phyisical_health()
+        self.assertEqual(
+            test,
             5
         )
 

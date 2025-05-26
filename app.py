@@ -78,9 +78,6 @@ def display_page_based_on_search():
                 emotion=data_source.get_alcohol_mental_health(),
                 pages=pages,
             )
-        if response == "home":
-            return render_template("home_page.html", pages=pages)
-        return render_template("home_page.html", pages=pages)
     return render_template("home_page.html", pages=pages)
 
 
