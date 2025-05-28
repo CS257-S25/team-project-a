@@ -2,7 +2,7 @@ function make_graph(data) {
 
   data = eval(data)
 
-  var svg = d3.select("#plot").attr("width", 640).attr("height", 640);
+  var svg = d3.select("#plot").attr("width", 460).attr("height", 460);
 
   var margin = {top: 10, right: 40, bottom: 60, left: 60},
   width = 450 - margin.left - margin.right,

@@ -53,20 +53,25 @@
         <div class = "margin">
         </div>
         <h2 id="exclusive">Data Overview</h2>
-        <svg id="plot"></svg>
-        <script src="{{ url_for('static', filename='drug_usage_graph.js') }}" charset="utf-8"></script>
-        <script>
-            var data = '{{ data }}'
-            make_graph(data)
-         </script>
-         <div class = "graph_info">
-            <p>
-               This graph plots the number of self help meetings for drug abuse participants 
-               went to versus the self reportaed effect of drugs on their mental health. The opacity
-               of the dots on the chart corresponds to the number of respondants who had that combo of 
-               responses. Finaly the self reported effect of drugs on the respondants mental healh was rated on
-               a scale from 1 - 5 which can be seen in the chart. 
-            </p>
+        <div class = "vertical_margin ">
+         <div class="graph">
+            <svg id="plot"></svg>
+            <script src="{{ url_for('static', filename='drug_usage_graph.js') }}" charset="utf-8"></script>
+            <script>
+                  var data = '{{ data }}'
+                  make_graph(data)
+               </script>
+            </div>
+            <div class = "graph_info">
+               <h3>How to read the graph</h3>
+               <p>
+                  This graph plots the number of self help meetings for drug abuse participants 
+                  went to versus the self reportaed effect of drugs on their mental health. The opacity
+                  of the dots on the chart corresponds to the number of respondants who had that combo of 
+                  responses. Finaly the self reported effect of drugs on the respondants mental healh was rated on
+                  a scale from 1 - 5 which can be seen in the chart. 
+               </p>
+            </div>
          </div>
      </body>
  </html>

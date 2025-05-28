@@ -191,7 +191,14 @@ div.alcohol_info {
     text-align: center;
     padding: 14px 16px;
 }
+
+div.graph {
+    flex: 1;
+    display: block;
+}
+
 div.graph_info {
+    flex: 2;
     display: block;
     float: left;
     color: white;
