@@ -191,6 +191,16 @@ div.alcohol_info {
     text-align: center;
     padding: 14px 16px;
 }
+div.graph_info {
+    display: block;
+    float: left;
+    color: white;
+    background-color: #7D9599;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
 
 div.info ul {
     list-style-type: none;
