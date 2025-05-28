@@ -3,8 +3,9 @@
 import sys
 import psycopg2
 from ProductionCode import psql_config as config
+from ProductionCode.singleton_meta import SingletonMeta
 
-class DataSource:
+class DataSource(metaclass=SingletonMeta):
     """Sets up a database that can run sql commands"""
 
     def __init__(self):
