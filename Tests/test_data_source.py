@@ -18,10 +18,10 @@ class TestGetMeetingsAttended(unittest.TestCase):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre = DataSource()
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[1.6357466063348416]]
             )
-        data_soucre = DataSource()
         self.assertEqual(
             data_soucre.get_ave_meetings_attended(),
             1.64
@@ -40,10 +40,10 @@ class TestGetArrestRanges(unittest.TestCase):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre = DataSource()
+        data_soucre.connection.cursor().fetchall.return_value = (
             [None]*283
             )
-        data_soucre = DataSource()
         self.assertEqual(
             data_soucre.get_arrest_ranges(1, 10),
             283
@@ -61,8 +61,9 @@ class TestGetSubstanceHealth(unittest.TestCase):
     def test_drug_emotional_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[5]]
             )
         data_soucre = DataSource()
@@ -76,11 +77,11 @@ class TestGetSubstanceHealth(unittest.TestCase):
     def test_alcohol_emotional_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[5]]
             )
-        data_soucre = DataSource()
         test = data_soucre.get_alcohol_mental_health()
         self.assertEqual(
             test,
@@ -91,11 +92,11 @@ class TestGetSubstanceHealth(unittest.TestCase):
     def test_drug_physical_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[5]]
             )
-        data_soucre = DataSource()
         test = data_soucre.get_drug_physical_health()
         self.assertEqual(
             test,
@@ -106,11 +107,11 @@ class TestGetSubstanceHealth(unittest.TestCase):
     def test_alcohol_physical_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[5]]
             )
-        data_soucre = DataSource()
         test = data_soucre.get_alcohol_phyisical_health()
         self.assertEqual(
             test,
@@ -129,11 +130,11 @@ class TestGetGraphData(unittest.TestCase):
     def test_route(self, mock_connect):
         """Tests a correct path that should display the methods result"""
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[1]]*2
             )
-        data_soucre = DataSource()
         self.assertEqual(
             data_soucre.get_graph_data(),
             [[1, 1], [1, 1]]

@@ -3,6 +3,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
+from ProductionCode.datasource import DataSource
 from app import app
 
 
@@ -39,8 +40,9 @@ class TestGetMeetingCount(unittest.TestCase):
         """Tests a correct path that should display the methods result"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         # set what it should return
-        self.mock_cursor.fetchall.return_value = [[1.6357466063348416]]
+        data_soucre.connection.cursor().fetchall.return_value = [[1.6357466063348416]]
         response = self.app.get("/meeting/count", follow_redirects=True)
         self.assertEqual(
             b"The average number of self-help meetings attended is 1.64", response.data
@@ -63,8 +65,9 @@ class TestGetMeetingPage(unittest.TestCase):
         """Tests a correct path that should display the methods result"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         # set what it should return
-        self.mock_cursor.fetchall.return_value = [[1.6357466063348416]]
+        data_soucre.connection.cursor().fetchall.return_value = [[1.6357466063348416]]
         response = self.app.get("/meeting", follow_redirects=True)
         self.assertIn(
             b'li>Average meetings attended by study participants: 1.64</li>' +
@@ -99,8 +102,9 @@ class TestDrugSaleArrests(unittest.TestCase):
         """Test for route for drug sale arrests"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         #set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [None]*283
             )
         response = self.app.get('/sellArrest/lower/upper?lower=1&upper=10', follow_redirects=True)
@@ -146,8 +150,9 @@ class Test404Page(unittest.TestCase):
         """Tests a correct path that should display the methods result"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         #set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[1]]*2
             )
         response = self.app.get("/dataOverview", follow_redirects=True)
@@ -174,8 +179,9 @@ class TestSearch(unittest.TestCase):
         """Tests a correct path that should display the methods result"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         # set what it should return
-        self.mock_cursor.fetchall.return_value = [[1.6357466063348416]]
+        data_soucre.connection.cursor().fetchall.return_value = [[1.6357466063348416]]
         response = self.app.post("/search", data={
             "search": "meetings",
         })
@@ -191,8 +197,9 @@ class TestSearch(unittest.TestCase):
         """Test for route for drug sale arrests"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         #set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [None]*283
             )
         response = self.app.post("/search", data={
@@ -207,8 +214,9 @@ class TestSearch(unittest.TestCase):
         """Test for route for home page"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         #set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [None]*283
             )
         response = self.app.post("/search", data={
@@ -223,8 +231,9 @@ class TestSearch(unittest.TestCase):
         """Test for route for home page"""
         self.app = app.test_client()
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
         #set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[1]]*2
             )
         response = self.app.post("/search", data={

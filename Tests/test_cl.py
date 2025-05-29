@@ -4,6 +4,7 @@ import unittest
 import sys
 from io import StringIO
 from unittest.mock import MagicMock, patch
+from ProductionCode.datasource import DataSource
 import cl
 
 dummyData = [
@@ -29,8 +30,9 @@ class TestProcessInput(unittest.TestCase):
         """Testing that the comand line command returns something when valid"""
         sys.argv = ["basic_cl.py", "--meeting-freq"]
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[32.71]]
             )
         sys.stdout = StringIO()
@@ -43,8 +45,9 @@ class TestProcessInput(unittest.TestCase):
         """Testing that the comand line command returns something when valid"""
         sys.argv = ["basic_cl.py", "--meeting-count"]
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [[1.6357466063348416]]
             )
         sys.stdout = StringIO()
@@ -59,8 +62,9 @@ class TestProcessInput(unittest.TestCase):
         """Testing that the comand line command returns something when valid"""
         sys.argv = ["basic_cl.py", "--sellArrests", 1, 10]
         mock_connect.return_value = self.mock_conn
+        data_soucre = DataSource()
 		#set what it should return
-        self.mock_cursor.fetchall.return_value = (
+        data_soucre.connection.cursor().fetchall.return_value = (
             [None]*283
             )
         sys.stdout = StringIO()
