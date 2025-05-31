@@ -112,14 +112,20 @@ class TestDataOverview(unittest.TestCase):
         super().__init__(methodName)
         self.app = app.test_client()
 
-    def setUp(self):
+    @patch('ProductionCode.datasource.psycopg2.connect')
+    def setUp(self, mock_connect):
         """Sets up the mock database"""
         self.mock_conn = MagicMock()
         self.mock_cursor = self.mock_conn.cursor.return_value
+        mock_connect.return_value = self.mock_conn
+        self.data_soucre = DataSource()
 
     def test_route(self):
         """Tests a correct path that should display the data overview page"""
         response = self.app.get("/dataOverview", follow_redirects=True)
+        self.data_soucre.connection.cursor().fetchall.return_value = (
+            [[1, 1],[1, 1]]
+            )
         self.assertIn(
             b'<h2 id="exclusive">Data Overview</h2>',
             response.data,
