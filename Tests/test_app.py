@@ -117,11 +117,11 @@ class TestDataOverview(unittest.TestCase):
         self.mock_conn = MagicMock()
         self.mock_cursor = self.mock_conn.cursor.return_value
 
-    def test_bad_route(self):
-        """Tests a correct path that should display the methods result"""
-        response = self.app.get("/not_real", follow_redirects=True)
+    def test_route(self):
+        """Tests a correct path that should display the data overview page"""
+        response = self.app.get("/dataOverview", follow_redirects=True)
         self.assertIn(
-            b'<h2>Error 404:</h2>',
+            b'<h2 id="exclusive">Data Overview</h2>',
             response.data,
         )
 
@@ -138,8 +138,8 @@ class Test404Page(unittest.TestCase):
         self.mock_cursor = self.mock_conn.cursor.return_value
 
     @patch('ProductionCode.datasource.psycopg2.connect')
-    def test_route(self, mock_connect):
-        """Tests a correct path that should display the methods result"""
+    def test_bad_route(self, mock_connect):
+        """Tests a bad path that should display the 404 page"""
         mock_connect.return_value = self.mock_conn
         response = self.app.get("/ahidhd", follow_redirects=True)
         self.assertIn(
