@@ -1,5 +1,16 @@
 # CS257-Team-A
 
+## TD5 Option A:
+Code Smells:  
+app.py line 14 dead code  
+removed the commented out dead code from the old flask app
+
+test_app.py 90 and 100, 177 and 195 and 213 and 230 unnecisary duplicated code  
+Removed the duplication of data source creation and mocking and moved it all to each test classes setUp method  
+This prevents this code from being in each individual method and makes the code cleaner and easier to understand
+
+## TD5 Option B:
+
 ## Scanability
 
 The website has a main heading that tells the user what site they are on and is immediately obvious what information is is meant to give them. Adidionaly there are navigation buttons at the top so the user doesnt have to think how to navigate arround the page. 
