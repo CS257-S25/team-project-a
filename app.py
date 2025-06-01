@@ -157,8 +157,12 @@ def sell_arrest_result(lower, upper):
     returns an HTML page"""
     pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
-    lower = int(request.args.get("lower"))
-    upper = int(request.args.get("upper"))
+    try:
+        lower = int(request.args.get("lower"))
+        upper = int(request.args.get("upper"))
+    except ValueError:
+        lower = 0
+        upper = 0
     result = data_source.get_arrest_ranges(lower, upper)
 
     return render_template('sell_arrest_result.html', lower=lower, upper=upper,

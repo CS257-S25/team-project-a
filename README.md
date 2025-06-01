@@ -16,6 +16,8 @@ Fixing of typos in various files.
 
 ## TD5 Option B:
 
+In the drug sale arrest page I added on lines 65 and 67 better descripions for the input labels on the form. Adidionaly I made it so the form only takes integers and it will not cause an error when it is submited without any passed in parameters. This was all done in the sell_arrests.html page. 
+
 ## Scanability
 
 The website has a main heading that tells the user what site they are on and is immediately obvious what information is is meant to give them. Adidionaly there are navigation buttons at the top so the user doesnt have to think how to navigate arround the page. 
