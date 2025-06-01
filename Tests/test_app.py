@@ -104,7 +104,7 @@ class TestDrugSaleArrests(unittest.TestCase):
         self.assertIn(b'The number of people who were arrested between 1 and 10<br>' +
                       b'\n        times is: 283',
                           response.data)
-    
+
     def test_drug_sale_bad_input_page(self):
         """Test for route for drug sale arrests"""
         self.data_soucre.connection.cursor().fetchall.return_value = (
