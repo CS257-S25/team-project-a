@@ -104,6 +104,16 @@ class TestDrugSaleArrests(unittest.TestCase):
         self.assertIn(b'The number of people who were arrested between 1 and 10<br>' +
                       b'\n        times is: 283',
                           response.data)
+    
+    def test_drug_sale_bad_input_page(self):
+        """Test for route for drug sale arrests"""
+        self.data_soucre.connection.cursor().fetchall.return_value = (
+            [None]*283
+            )
+        response = self.app.get('/sellArrest/lower/upper?lower=&upper=', follow_redirects=True)
+        self.assertIn(b'The number of people who were arrested between 0 and 0<br>' +
+                      b'\n        times is: 283',
+                          response.data)
 
 class TestDataOverview(unittest.TestCase):
     """Tests the HTML data overview page"""
