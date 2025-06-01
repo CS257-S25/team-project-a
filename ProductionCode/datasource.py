@@ -57,7 +57,7 @@ class DataSource(metaclass=SingletonMeta):
 
     def get_arrest_ranges(self, low, high):
         """Gets the number of people with in the range 
-        of drug sale arrests proivided from the dataset
+        of drug sale arrests provided from the dataset
         takes in two integers for the range of arrests, returns an integer"""
 
         #Open a cursor to perform database operations

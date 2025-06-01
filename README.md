@@ -9,6 +9,8 @@ test_app.py 90 and 100, 177 and 195 and 213 and 230 unnecisary duplicated code
 Removed the duplication of data source creation and mocking and moved it all to each test classes setUp method  
 This prevents this code from being in each individual method and makes the code cleaner and easier to understand
 
+Fixing of typos in various files.
+
 ## TD5 Option B:
 
 ## Scanability

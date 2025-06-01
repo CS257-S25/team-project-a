@@ -208,6 +208,21 @@ div.graph_info {
     padding: 14px 16px;
 }
 
+div.arrest_info {
+    flex: 1;
+    display: block;
+    float: left;
+    color: white;
+    background-color: #7D9599;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+div.input_text {
+    flex: 1;
+    display: block;
+}
 
 div.info ul {
     list-style-type: none;
