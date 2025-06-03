@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    """Creates a homepage that has user instructions, returns a HTML page"""
+    """Creates a homepage that has user instructions, returns an HTML page"""
     pages = ["home", "meetings", "data overview", "arrests"]
     return render_template("home_page.html", pages=pages)
 
@@ -152,8 +152,7 @@ def get_meeting_count():
 @app.route('/sellArrest/<lower>/<upper>', strict_slashes=False, methods=["POST", "GET"])
 def sell_arrest_result(lower, upper):
     """Redirects from the sell arrest page to a page
-    that displays a result based on the lower and upper bounds
-    lower and upper bounds are integers
+    that displays a result based on the lower and upper bounds,
     returns an HTML page"""
     pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
