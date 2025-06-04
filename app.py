@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def homepage():
     """Creates a homepage that has user instructions, returns a HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests"]
+    pages = ["home", "meetings", "graph", "arrests"]
     return render_template("home_page.html", pages=pages)
 
 
@@ -17,7 +17,7 @@ def homepage():
 def page_not_found(e):
     """Makes a page for the user when an incorrect url is given
     takes in an error e, returns a string"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     return render_template("404_page.html", pages=pages, error=e)
 
 
@@ -32,7 +32,7 @@ def python_bug(e):
 def display_page_based_on_search():
     """Dynamicaly renders a page based on passed in search parameters,
     returns a HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     if request.method == "POST":
         response = request.form["search"].replace(" ", "_")
         if response == "meetings":
@@ -44,11 +44,11 @@ def display_page_based_on_search():
                 pages=pages,
             )
         if response == "arrests":
-            pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+            pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
             data_source = DataSource()
             return render_template("sell_arrest.html", pages=pages)
         if response == "data_overview":
-            pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+            pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
             data_source = DataSource()
             return render_template(
                 "data_overview_page.html", pages=pages, data=data_source.get_graph_data()
@@ -76,7 +76,7 @@ def display_page_based_on_search():
 def get_meeting():
     """Makes a page that runs when a user request is given for meeting data
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     return render_template(
         "self_help_meeting_page.html",
@@ -90,7 +90,7 @@ def get_meeting():
 def sell_arrest():
     """Determines the route to the drug arrests page
     which will take in user input, returns a HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     return render_template("sell_arrest.html", pages=pages)
 
 
@@ -98,7 +98,7 @@ def sell_arrest():
 def get_data_overview():
     """Makes a page that runs when a user request is given for the graphical data
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     return render_template(
         "data_overview_page.html", pages=pages, data=data_source.get_graph_data()
@@ -109,7 +109,7 @@ def get_data_overview():
 def get_drug_info():
     """Makes a page that runs when a user request is given for meeting data
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     return render_template(
         "drug_info_page.html",
@@ -123,7 +123,7 @@ def get_drug_info():
 def get_alcohol_info():
     """Makes a page that runs when a user request is given for meeting data
     returns an HTML page"""
-    pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
+    pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
     return render_template(
         "alcohol_info_page.html",
