@@ -118,7 +118,6 @@ def get_drug_info():
         pages=pages,
     )
 
-
 @app.route("/alcohol", strict_slashes=False)
 def get_alcohol_info():
     """Makes a page that runs when a user request is given for meeting data
@@ -152,8 +151,7 @@ def get_meeting_count():
 @app.route('/sellArrest/<lower>/<upper>', strict_slashes=False, methods=["POST", "GET"])
 def sell_arrest_result(lower, upper):
     """Redirects from the sell arrest page to a page
-    that displays a result based on the lower and upper bounds
-    lower and upper bounds are integers
+    that displays a result based on the lower and upper bounds,
     returns an HTML page"""
     pages = ["home", "meetings", "data overview", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
