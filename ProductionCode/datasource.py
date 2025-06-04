@@ -56,7 +56,7 @@ class DataSource(metaclass=SingletonMeta):
         return round((records1[0][0]/records2[0][0])*100, 2)
 
     def get_arrest_ranges(self, low, high):
-        """Gets the number of people with in the range 
+        """Gets the number of people within the range 
         of drug sale arrests provided from the dataset
         takes in two integers for the range of arrests, returns an integer"""
 

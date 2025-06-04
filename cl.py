@@ -58,7 +58,7 @@ def input_sell_arrest_helper():
 
 
 def get_sys_argv_length():
-    """gives the numebr of commands in the comand line input"""
+    """Gives the number of commands in the command line input"""
     return len(sys.argv)
 
 
