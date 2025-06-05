@@ -107,7 +107,7 @@ def get_data_overview():
 
 @app.route("/drug", strict_slashes=False)
 def get_drug_info():
-    """Makes a page that runs when a user request is given for meeting data
+    """Makes a page that runs when a user request is given for drug info data
     returns an HTML page"""
     pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()
@@ -120,7 +120,7 @@ def get_drug_info():
 
 @app.route("/alcohol", strict_slashes=False)
 def get_alcohol_info():
-    """Makes a page that runs when a user request is given for meeting data
+    """Makes a page that runs when a user request is given for alchohol info data
     returns an HTML page"""
     pages = ["home", "meetings", "graph", "arrests", "drug info", "alcohol info"]
     data_source = DataSource()

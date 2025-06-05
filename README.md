@@ -12,6 +12,8 @@ This prevents this code from being in each individual method and makes the code 
 I also added a singleton data source meta class in order to prevent the code smell of unnesisary creation of data source objects.  
 To do this I added a singleton meta class in singleton_meta.py.  
 
+Fixed docsrings to all be truthful about method functions specificly in app 110 and 123 
+
 Fixing of typos in various files.  
 
 ## TD5 Option B:
