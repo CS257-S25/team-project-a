@@ -69,41 +69,41 @@ class DataSource(metaclass=SingletonMeta):
         return len(records)
 
     def get_alcohol_phyisical_health(self):
-        """Gets the frequency at which patients' physical
+        """Gets the average at which patients' physical
         health is affected by alcohol"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT max(cast(AlcoholUsePhysicalHealth as int)) FROM drug_data")
+        cursor.execute("SELECT avg(cast(AlcoholUsePhysicalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
         return round(records[0][0], 2)
 
     def get_alcohol_mental_health(self):
-        """Gets the frequency at which patients' mental
+        """Gets the average at which patients' mental
         health is affected by alcohol"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT max(cast(AlcoholUseEmotionalHealth as int)) FROM drug_data")
+        cursor.execute("SELECT avg(cast(AlcoholUseEmotionalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
         return round(records[0][0], 2)
 
     def get_drug_physical_health(self):
-        """Gets the frequency at which patients' physical
+        """Gets the average at which patients' physical
         health is affected by drugs"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT max(cast(DrugUsePhysicalHealth as int)) FROM drug_data")
+        cursor.execute("SELECT avg(cast(DrugUsePhysicalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
         return round(records[0][0], 2)
 
     def get_drug_mental_health(self):
-        """Gets the frequency at which patients' mental
+        """Gets the average at which patients' mental
         health is affected by drugs"""
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT max(cast(DrugUseEmotionalHealth as int)) FROM drug_data")
+        cursor.execute("SELECT avg(cast(DrugUseEmotionalHealth as int)) FROM drug_data")
 
         records = cursor.fetchall()
         return round(records[0][0], 2)
