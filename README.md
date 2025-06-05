@@ -18,6 +18,8 @@ Fixing of typos in various files.
 
 In the drug sale arrest page I added on lines 65 and 67 better descripions for the input labels on the form. Adidionaly I made it so the form only takes integers and it will not cause an error when it is submited without any passed in parameters. This was all done in the sell_arrests.html page. 
 
+In all of the pages HTML at line 26 on the main navigation bar I changed the name of Data Overview to Graph and also on the homepage at line 56 I changed the name of info to data overview so that it is easier for people to know where the information about the database is and also so the place where you can draw conclusions from the data is more clear as it is now called graph which is more likely to invoke a feeling of comparison in the user.  
+
 ## Scanability
 
 The website has a main heading that tells the user what site they are on and is immediately obvious what information is is meant to give them. Adidionaly there are navigation buttons at the top so the user doesnt have to think how to navigate arround the page. 

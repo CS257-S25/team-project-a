@@ -101,7 +101,8 @@ class TestDrugSaleArrests(unittest.TestCase):
             [None]*283
             )
         response = self.app.get('/sellArrest/lower/upper?lower=1&upper=10', follow_redirects=True)
-        self.assertIn(b'The number of people who were arrested on drug charges between 1 and 10<br>' +
+        self.assertIn(b'The number of people who were arrested on ' +
+                      b'drug charges between 1 and 10<br>' +
                       b'\n        times is: 283',
                           response.data)
 
@@ -111,7 +112,8 @@ class TestDrugSaleArrests(unittest.TestCase):
             [None]*283
             )
         response = self.app.get('/sellArrest/lower/upper?lower=&upper=', follow_redirects=True)
-        self.assertIn(b'The number of people who were arrested on drug charges between 0 and 0<br>' +
+        self.assertIn(b'The number of people who were arrested on ' +
+                      b'drug charges between 0 and 0<br>' +
                       b'\n        times is: 283',
                           response.data)
 
