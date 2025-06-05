@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Drug Abuse Outcomes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+    </script>  
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+    </script>  
+      
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+
+  </head>
+  <body>
+    <h1> Drug Abuse Treatment Database </h1>
+    <nav>
+      <div>
+        <a class="logo" href="/">
+          <img src="{{ url_for('static', filename='House_Icon.png') }}" alt="home">
+        </a>
+        <div class="pages">
+        <ul>
+          <li><a href="/meeting">Meeting info</a></li>
+          <li><a href="/sellArrest">Arrests</a></li>
+          <li><a href="/dataOverview">Graph</a></li>
+          <li><a href="/drug">Drug Info</a></li>
+          <li><a href="/alcohol">Alcohol Info</a></li>
+        </ul>
+        </div>
+      </div>
+      <div class="search">
+            <form action="search" method="post">
+               <input type="text" placeholder="Search..." aria-label = "enter search term" id="tags" name="search">
+               <script>
+                  $( function() {
+                     var availableTags = [
+                        {% for page in pages %}
+                              "{{page}}",
+                        {% endfor %}
+                     ];
+                     $( "#tags" ).autocomplete({
+                        source: availableTags
+                     });
+                  } );
+               </script>
+               <input type="submit" value="Submit">
+            </form>
+         </div>
+    </nav>
+    <div class = "margin">
+    </div>
+  <div class = "usage_box">
+    <div class="how_to_use">
+      <h2>Error 404:</h2>
+      <p>The top bar can be used for navigation by clicking on the buttons along the bar 
+        underneath the title of the page. Additionally, there is a search bar where it is possible 
+        to look for a specific page. Also, it is possible to navigate to individual meeting info
+        by typing directly into the URL/meeting/frequency or /meeting/count.  
+    </p>
+    </div>
+  </div>
+
+</body>
+</html>
