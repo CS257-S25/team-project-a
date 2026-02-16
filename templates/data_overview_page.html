@@ -1,0 +1,77 @@
+<html>
+     <head>
+         <title>Data Overview</title>
+         <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+         </script>  
+      
+         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+         </script>  
+
+         <script src="https://d3js.org/d3.v6.min.js"></script>
+         
+         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+            rel="stylesheet" type="text/css" />
+
+     </head>
+     <body>
+        <h1> Drug Abuse Treatment Database </h1>
+        <nav>
+        <div>
+            <a class="logo" href="/">
+            <img src="{{ url_for('static', filename='House_Icon.png') }}" alt="home">
+            </a>
+            <div class="pages">
+            <ul>
+            <li><a href="/meeting">Meeting info</a></li>
+            <li><a href="/sellArrest">Arrests</a></li>
+            <li><a href="/dataOverview">Graph</a></li>
+            <li><a href="/drug">Drug Info</a></li>
+            <li><a href="/alcohol">Alcohol Info</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="search">
+            <form action="search" method="post">
+               <input type="text" placeholder="Search..." id="tags" name="search">
+               <script>
+                  $( function() {
+                     var availableTags = [
+                        {% for page in pages %}
+                              "{{page}}",
+                        {% endfor %}
+                     ];
+                     $( "#tags" ).autocomplete({
+                        source: availableTags
+                     });
+                  } );
+               </script>
+               <input type="submit" value="Submit">
+            </form>
+         </div>
+        </nav>
+        <div class = "margin">
+        </div>
+        <h2 id="exclusive">Data Overview</h2>
+        <div class = "vertical_margin">
+         <div class="graph">
+            <svg id="plot"></svg>
+            <script src="{{ url_for('static', filename='drug_usage_graph.js') }}" charset="utf-8"></script>
+            <script>
+                  var data = '{{ data }}'
+                  make_graph(data)
+               </script>
+            </div>
+            <div class = "graph_info">
+               <h3>How to read the graph</h3>
+               <p>
+                  This graph plots the number of self help meetings for drug abuse participants 
+                  went to versus the self reported effect of drugs on their mental health. The opacity
+                  of the dots on the chart corresponds to the number of respondants who had that combo of 
+                  responses. Finally the self reported effect of drugs on the respondants mental healh was rated on
+                  a scale from 1 - 5 which can be seen in the chart. 
+               </p>
+            </div>
+         </div>
+     </body>
+ </html>

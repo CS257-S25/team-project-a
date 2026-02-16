@@ -1,0 +1,86 @@
+<html>
+     <head>
+         
+         <link rel="stylesheet" href="{{ url_for('static', filename='css_file.css') }}">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">  
+         </script>  
+      
+         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">  
+         </script>  
+      
+         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+            rel="stylesheet" type="text/css" />
+         
+         <title class="sell_arrest">Arrest Info</title>
+
+     </head>
+     <body>
+        <h1 class="sell_arrest"> Drug Abuse Treatment Database </h1>
+        <nav>
+        <div>
+            <a class="logo" href="/">
+            <img src="{{ url_for('static', filename='House_Icon.png') }}" alt="home">
+            </a>
+            <div class="pages">
+            <ul>
+            <li><a href="/meeting">Meeting info</a></li>
+            <li><a href="/sellArrest">Arrests</a></li>
+            <li><a href="/dataOverview">Graph</a></li>
+            <li><a href="/drug">Drug Info</a></li>
+            <li><a href="/alcohol">Alcohol Info</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="search">
+            <form action="search" method="post">
+               <input type="text" placeholder="Search..." aria-label = "enter search term" id="tags" name="search">
+               <script>
+                  $( function() {
+                     var availableTags = [
+                        {% for page in pages %}
+                              "{{page}}",
+                        {% endfor %}
+                     ];
+                     $( "#tags" ).autocomplete({
+                        source: availableTags
+                     });
+                  } );
+               </script>
+               <input type="submit" value="Submit">
+            </form>
+         </div>
+        </nav>
+        <div class = "margin">
+        </div>
+
+
+        <h2 id="exclusive">Arrest Info</h2>
+
+        <p>
+            Please enter your lower and upper bounds as directed.
+        </p>
+        <div class = "vertical_margin">
+            <div class="input_text">
+                  <form action="/sellArrest/lower/upper" method="GET">
+                     <label for="lower">Lowest Drug Based Arrest Count:</label><br>
+                     <input type="number" id="lower" name="lower"><br>
+                     <label for="upper">Highest Drug Based Arrest Count:</label><br>
+                     <input type="number" id="upper" name="upper">
+                     <input type="submit" value="Submit">
+                  </form>
+            </div>
+
+            <div class = "arrest_info">
+               <h3>How to use:</h3>
+                  <p>
+                     Enter two integer values, one for the lower 
+                     bound and one for the upper bound.
+                     In return, you will receive the amount of people who were 
+                     arrested between the two frequencies.
+                  </p>
+            </div>
+        </div>
+        
+
+     </body>
+ </html>
